@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - Makochi Preescolar</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <a href="index.html">
+              <img
+                src="images/logo.png"
+                alt="Makochi Preescolar"
+                class="logo"
+              />
+            </a>
+          </div>
+          <div class="nav-menu" id="nav-menu">
+            <ul class="nav-list">
+              <li><a href="index.html" class="nav-link">Inicio</a></li>
+              <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+              <li>
+                <a href="modelo-educativo.html" class="nav-link"
+                  >Modelo Educativo</a
+                >
+              </li>
+              <li>
+                <a href="instalaciones.html" class="nav-link">Instalaciones</a>
+              </li>
+              <li><a href="admisiones.html" class="nav-link">Admisiones</a></li>
+              <li>
+                <a href="contacto.html" class="nav-link active">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-toggle" id="nav-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Contáctanos</h1>
+          <p class="hero-subtitle">
+            Estamos aquí para resolver todas tus dudas y acompañarte en este
+            importante paso
+          </p>
+        </div>
+      </section>
+
+      <!-- Información de Contacto -->
+      <section class="contacto-info">
+        <div class="container">
+          <div class="contacto-grid">
+            <div class="contacto-info">
+              <h2 class="section-title">Información de Contacto</h2>
+              <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-content">
+                  <h3>Dirección</h3>
+                  <p>Nogal 800, Col. Arboledas, C.P. 76140, Querétaro, Qro.</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">📞</div>
+                <div class="info-content">
+                  <h3>Teléfonos</h3>
+                  <p>
+                    <a
+                      href="https://wa.me/524421415947"
+                      target="_blank"
+                      aria-label="WhatsApp"
+                    >
+                      (442) 141-5947</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">📧</div>
+                <div class="info-content">
+                  <h3>Correo Electrónico</h3>
+                  <p>contacto@makochipreescolar.mx</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">🕒</div>
+                <div class="info-content">
+                  <h3>Horarios de Atención</h3>
+                  <p>
+                    <strong>Lunes a Viernes:</strong> 7:00 AM - 6:00 PM<br />
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Formulario de Contacto -->
+            <div class="formulario-contacto">
+              <h2 class="section-title">Envíanos un Mensaje</h2>
+              <form
+                action="mailto:mgs93.c0de@gmail.com"
+                method="post"
+                enctype="text/plain"
+                class="contact-form"
+              >
+                <div class="form-group">
+                  <label for="nombre">Nombre Completo *</label>
+                  <input type="text" id="nombre" name="nombre" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Correo Electrónico *</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" />
+                </div>
+                <div class="form-group">
+                  <label for="asunto">Asunto *</label>
+                  <select id="asunto" name="asunto" required>
+                    <option value="">Selecciona un asunto</option>
+                    <option value="informacion-general">
+                      Información General
+                    </option>
+                    <option value="proceso-admision">
+                      Proceso de Admisión
+                    </option>
+                    <option value="visita-instalaciones">
+                      Visita a Instalaciones
+                    </option>
+                    <option value="costos-colegiaturas">
+                      Costos y Colegiaturas
+                    </option>
+                    <option value="modelo-educativo">Modelo Educativo</option>
+                    <option value="horarios-servicios">
+                      Horarios y Servicios
+                    </option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="edad-hijo">Edad de tu hijo/a</label>
+                  <select id="edad-hijo" name="edad-hijo">
+                    <option value="">Selecciona la edad</option>
+                    <option value="2-anos">2 años</option>
+                    <option value="3-anos">3 años</option>
+                    <option value="4-anos">4 años</option>
+                    <option value="5-anos">5 años</option>
+                    <option value="6-anos">6 años</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="mensaje">Mensaje *</label>
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="5"
+                    required
+                    placeholder="Cuéntanos en qué podemos ayudarte..."
+                  ></textarea>
+                </div>
+                <div class="form-group checkbox-group">
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="politicas" required />
+                    <span class="checkmark"></span>
+                    Acepto las políticas de privacidad y el tratamiento de mis
+                    datos personales
+                  </label>
+                </div>
+                <div class="form-group checkbox-group">
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="newsletter" />
+                    <span class="checkmark"></span>
+                    Deseo recibir información sobre eventos y noticias del
+                    preescolar
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Enviar Mensaje
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mapa -->
+      <section class="mapa">
+        <div class="container">
+          <h2 class="section-title text-center">Nuestra Ubicación</h2>
+          <div class="mapa-container">
+            <!-- <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.8!2d-99.1677!3d19.4269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f8b0f3e4a5b7%3A0x1234567890abcdef!2sAv.%20Revoluci%C3%B3n%2C%20Ciudad%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1234567890123!5m2!1ses!2smx" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación de Makochi Preescolar">
+                    </iframe> -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14937.576412036278!2d-100.39226710796356!3d20.61278694718061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b00733de833%3A0x4fd30ed642417fd0!2sMakochi%20Preeschool!5e0!3m2!1ses!2smx!4v1753137147973!5m2!1ses!2smx"
+              width="100%"
+              height="400"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación de Makochi Preescolar"
+            ></iframe>
+          </div>
+          <!-- <div class="ubicacion-info">
+            <div class="transporte-grid">
+              <div class="transporte-item">
+                <h4>🚗 En Auto</h4>
+                <p>
+                Contamos con estacionamiento gratuito para padres de familia
+                </p>
+              </div>
+              <div class="transporte-item">
+                <h4>🚌 Transporte Público</h4>
+                <p>Metro Revolución (Línea 2) a 3 cuadras de distancia</p>
+              </div>
+              <div class="transporte-item">
+                <h4>🚐 Transporte Escolar</h4>
+                <p>Servicio disponible para diferentes zonas de la ciudad</p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      <!-- Preguntas Rápidas -->
+      <section class="preguntas-rapidas">
+        <div class="container">
+          <h2 class="section-title text-center">Preguntas Frecuentes</h2>
+          <div class="faq-contacto">
+            <div class="faq-item-contacto">
+              <h3>¿Puedo agendar una visita?</h3>
+              <p>
+                ¡Por supuesto! Contáctanos para agendar una visita guiada donde
+                conocerás nuestras instalaciones y podrás platicar con nuestro
+                equipo directivo.
+              </p>
+            </div>
+            <div class="faq-item-contacto">
+              <h3>¿Cuándo inician las inscripciones?</h3>
+              <p>
+                El proceso de inscripciones para el ciclo 2025-2026 inicia en
+                enero. Te recomendamos contactarnos desde diciembre para apartar
+                lugar.
+              </p>
+            </div>
+            <div class="faq-item-contacto">
+              <h3>¿Ofrecen becas o descuentos?</h3>
+              <p>
+                Sí, contamos con diferentes opciones de apoyo económico. Agenda
+                una cita para conocer los requisitos y disponibilidad.
+              </p>
+            </div>
+            <div class="faq-item-contacto">
+              <h3>¿Qué documentos necesito para inscribir a mi hijo?</h3>
+              <p>
+                La lista completa de documentos la encontrarás en nuestra
+                sección de admisiones o te la proporcionamos durante la visita.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Redes Sociales -->
+      <section class="redes-sociales">
+        <div class="container">
+          <h2 class="section-title text-center">Síguenos en Redes Sociales</h2>
+          <p class="redes-subtitle text-center">
+            Mantente al día con nuestras actividades, eventos y noticias
+          </p>
+          <div class="redes-grid">
+            <a href="#" class="red-social facebook">
+              <div class="red-icon">📘</div>
+              <h3>Facebook</h3>
+              <p>@MakochiPreescolar</p>
+            </a>
+            <a href="#" class="red-social instagram">
+              <div class="red-icon">📷</div>
+              <h3>Instagram</h3>
+              <p>@makochi_preescolar</p>
+            </a>
+            <a href="#" class="red-social whatsapp">
+              <div class="red-icon">💬</div>
+              <h3>WhatsApp</h3>
+              <p>(55) 9876-5432</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="cta-contacto">
+        <div class="container">
+          <div class="cta-content">
+            <h2>¿Tienes más preguntas?</h2>
+            <p>
+              Nuestro equipo está listo para atenderte y resolver todas tus
+              dudas
+            </p>
+            <div class="cta-buttons">
+              <a
+                href="https://wa.me/4421415947"
+                class="btn btn-secondary"
+                target="_blank"
+                >WhatsApp</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Makochi Preescolar</h3>
+            <p>Educación inicial de calidad con amor y dedicación</p>
+          </div>
+          <div class="footer-section">
+            <h4>Contacto</h4>
+            <p>📞 (442) 141-5947</p>
+            <p>📧 contacto@makochipreescolar.mx</p>
+          </div>
+          <div class="footer-section">
+            <h4>Síguenos</h4>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook">📘</a>
+              <a href="#" aria-label="Instagram">📷</a>
+              <a href="#" aria-label="WhatsApp">💬</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Makochi Preescolar. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
