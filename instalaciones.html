@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instalaciones - Makochi Preescolar</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/areas-desarrollo.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
@@ -21,7 +22,7 @@
           <div class="nav-logo">
             <a href="index.html">
               <img
-                src="images/logo.png"
+                src="images/makochi_logo_white.png"
                 alt="Makochi Preescolar"
                 class="logo"
               />
@@ -382,7 +383,9 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h3>Makochi Preescolar</h3>
+            <a href="index.html"
+              ><img src="images/makochi_logo_cyan.png" alt="MakochiFooter" />
+            </a>
             <p>Educación inicial de calidad con amor y dedicación</p>
           </div>
           <div class="footer-section">
@@ -393,14 +396,37 @@
           <div class="footer-section">
             <h4>Síguenos</h4>
             <div class="social-links">
-              <a href="#" aria-label="Facebook">📘</a>
-              <a href="#" aria-label="Instagram">📷</a>
-              <a href="#" aria-label="WhatsApp">💬</a>
+              <a
+                href="https://www.facebook.com/profile.php?id=100089832392100"
+                target="_blank"
+                aria-label="Facebook"
+                ><img src="images/facebook.png" alt="Facebook" />
+              </a>
+              <a
+                href="https://instagram.com/kinder.makochi"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <img src="images/instagram.png" alt="Instagram" />
+              </a>
+              <a
+                href="https://wa.me/4421415947"
+                aria-label="WhatsApp"
+                target="_blank"
+                ><img src="images/whatsapp.png" alt="WhatsApp"
+              /></a>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Makochi Preescolar. Todos los derechos reservados.</p>
+          <p>
+            &copy; <span id="current-year"></span> Makochi Preescolar. Todos los
+            derechos reservados.
+          </p>
+          <script>
+            document.getElementById("current-year").textContent =
+              new Date().getFullYear();
+          </script>
         </div>
       </div>
     </footer>

@@ -450,7 +450,7 @@ const HeroAnimation = {
       if (wordIndex < words.length - 1) {
         const spaceSpan = Utils.createElement("span", "hero-space", {
           display: "inline-block",
-          width: "0.5rem",
+          width: "1rem",
         });
         spaceSpan.innerHTML = "&nbsp;";
         heroTitle.appendChild(spaceSpan);
@@ -873,6 +873,8 @@ const ScrollAnimations = {
     `);
   },
 };
+
+// The mobile navigation is already handled by the Navigation module above
 
 // ===== MAIN INITIALIZATION =====
 const App = {
