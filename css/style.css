@@ -238,15 +238,15 @@ p {
   z-index: 2;
 }
 
-.hero-title {
+/* .hero-title {
   font-family: var(--font-display);
-  font-size: 4.5rem;
+  font-size: rem;
   margin-bottom: 1rem;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
   color: #ffffff;
   font-weight: 800;
   animation: bounceIn 1s ease-out;
-}
+} */
 
 @keyframes bounceIn {
   0% {
@@ -267,10 +267,10 @@ p {
 }
 
 .hero-subtitle {
-  font-size: 1.6rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
   font-weight: 500;
-  color: #ffffff;
+  color: #000000;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   animation: slideInUp 1s ease-out 0.3s both;
 }
@@ -919,5 +919,100 @@ figcaption {
   body {
     font-size: 12pt;
     line-height: 1.4;
+  }
+}
+
+/* Fix for horarios section - ensure elements stay visible */
+.horarios {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fffe 0%, #e8f8f5 100%);
+}
+
+.horarios-content {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.horario-item {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 350px;
+  min-width: 300px;
+  flex: 1;
+  /* Ensure the element is visible and stable */
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  position: relative !important;
+  transform: none !important;
+}
+
+.horario-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.horario-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.horario-item h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.horario-time {
+  background: var(--accent-color);
+  border-radius: 15px;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dias {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+.tiempo {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+}
+
+.horario-item p {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Remove any conflicting animations or transitions that might cause disappearing */
+.horario-item * {
+  animation-fill-mode: forwards !important;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .horarios-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .horario-item {
+    max-width: 100%;
+    min-width: 280px;
   }
 }

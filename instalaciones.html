@@ -95,75 +95,105 @@
         </div>
       </section>
 
-      <!-- galeria collage -->
-      <section class="collage-section instalaciones-collage">
+      <!-- Galería de Instalaciones -->
+      <section class="instalaciones-gallery">
         <div class="container">
-          <h2 class="section-title text-center">
-            Nuestras Instalaciones en Acción
-          </h2>
-          <p class="section-description text-center">
-            Un vistazo a los espacios donde la diversión y el aprendizaje se
-            encuentran.
-          </p>
-          <div class="photo-collage-grid">
-            <div class="collage-item large">
-              <img
-                src="images/jardin.jpeg"
-                alt="Jardín y área al aire libre de Makochi Preescolar"
-              />
-              <div class="collage-overlay">
-                <h3>Espacios Exteriores</h3>
-                <p>Aire libre y naturaleza para explorar.</p>
+          <div class="gallery-header">
+            <h2 class="section-title text-center">Nuestras Instalaciones</h2>
+            <p class="section-description text-center">
+              Espacios diseñados especialmente para el desarrollo integral de
+              nuestros pequeños
+            </p>
+          </div>
+
+          <div class="facilities-grid">
+            <div
+              class="facility-card main-card"
+              data-image="images/jardin.jpeg"
+              data-title="Espacios Exteriores"
+            >
+              <div class="facility-image">
+                <img
+                  src="images/jardin.jpeg"
+                  alt="Jardín y área al aire libre de Makochi Preescolar"
+                />
+                <div class="facility-overlay">
+                  <h3>Espacios Exteriores</h3>
+                  <p>
+                    Áreas verdes seguras donde los niños pueden conectar con la
+                    naturaleza.
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="collage-item">
-              <img
-                src="images/mesita.jpeg"
-                alt="Aula de clases con mesas y sillas infantiles"
-              />
-              <div class="collage-overlay">
-                <h3>Aulas Acogedoras</h3>
-                <p>Diseñadas para la concentración y el juego.</p>
+
+            <div
+              class="facility-card"
+              data-image="images/mesita.jpeg"
+              data-title="Aulas Didácticas"
+            >
+              <div class="facility-image">
+                <img
+                  src="images/mesita.jpeg"
+                  alt="Aula de clases con mesas y sillas infantiles"
+                />
+                <div class="facility-overlay">
+                  <h3>Aulas Didácticas</h3>
+                  <p>Espacios luminosos equipados con mobiliario adaptado.</p>
+                </div>
               </div>
             </div>
-            <div class="collage-item">
-              <img
-                src="images/casita2.jpeg"
-                alt="Zona de juegos techada con casita y carro infantil"
-              />
-              <div class="collage-overlay">
-                <h3>Área de Juego Techada</h3>
-                <p>Diversión garantizada bajo cualquier clima.</p>
+
+            <div
+              class="facility-card"
+              data-image="images/casita2.jpeg"
+              data-title="Área de Juego Cubierta"
+            >
+              <div class="facility-image">
+                <img
+                  src="images/casita2.jpeg"
+                  alt="Zona de juegos techada con casita y carro infantil"
+                />
+                <div class="facility-overlay">
+                  <h3>Área de Juego Cubierta</h3>
+                  <p>Zona recreativa protegida del clima para juego libre.</p>
+                </div>
               </div>
             </div>
-            <div class="collage-item">
-              <img
-                src="images/salon.jpeg"
-                alt="Estación de lavamanos para niños en el patio"
-              />
-              <div class="collage-overlay">
-                <h3>Higiene y Cuidado</h3>
-                <p>Espacios adaptados para hábitos saludables.</p>
+
+            <div
+              class="facility-card"
+              data-image="images/pizarron.jpeg"
+              data-title="Biblioteca Infantil"
+            >
+              <div class="facility-image">
+                <img
+                  src="images/pizarron.jpeg"
+                  alt="Rincón de lectura y pizarra interactiva"
+                />
+                <div class="facility-overlay">
+                  <h3>Biblioteca Infantil</h3>
+                  <p>Rincón acogedor para cultivar el amor por la lectura.</p>
+                </div>
               </div>
             </div>
-            <div class="collage-item">
-              <img
-                src="images/pizarron.jpeg"
-                alt="Rincón de lectura y pizarra interactiva"
-              />
-              <div class="collage-overlay">
-                <h3>Rincón de Lectura</h3>
-                <p>Fomentando el amor por los libros.</p>
-              </div>
-            </div>
-            <div class="collage-item">
-              <img
-                src="images/preescolar.jpg"
-                alt="Vista general de un aula con estanterías y mesas"
-              />
-              <div class="collage-overlay">
-                <h3>Ambientes Estimulantes</h3>
-                <p>Cada rincón, una oportunidad para aprender.</p>
+
+            <div
+              class="facility-card"
+              data-image="images/preescolar.jpg"
+              data-title="Ambientes de Aprendizaje"
+            >
+              <div class="facility-image">
+                <img
+                  src="images/preescolar.jpg"
+                  alt="Vista general de un aula con estanterías y mesas"
+                />
+                <div class="facility-overlay">
+                  <h3>Ambientes de Aprendizaje</h3>
+                  <p>
+                    Espacios diseñados para estimular la curiosidad natural.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -370,11 +400,11 @@
     </main>
 
     <!-- Modal para Galería -->
-    <div id="gallery-modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <img id="modal-image" src="" alt="" />
-        <div id="modal-caption"></div>
+    <div id="gallery-modal" class="gallery-modal">
+      <div class="gallery-modal-content">
+        <span class="gallery-modal-close">&times;</span>
+        <img id="modal-image" class="gallery-modal-image" src="" alt="" />
+        <div id="modal-caption" class="gallery-modal-caption"></div>
       </div>
     </div>
 
@@ -432,5 +462,50 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+      // Gallery Modal functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("gallery-modal");
+        const modalImage = document.getElementById("modal-image");
+        const modalCaption = document.getElementById("modal-caption");
+        const closeBtn = document.querySelector(".gallery-modal-close");
+        const facilityCards = document.querySelectorAll(".facility-card");
+
+        // Add click event to each facility card
+        facilityCards.forEach((card) => {
+          card.addEventListener("click", function () {
+            const imageSrc = this.getAttribute("data-image");
+            const imageTitle = this.getAttribute("data-title");
+
+            modalImage.src = imageSrc;
+            modalCaption.textContent = imageTitle;
+            modal.classList.add("show");
+            document.body.style.overflow = "hidden";
+          });
+        });
+
+        // Close modal when clicking the X
+        closeBtn.addEventListener("click", function () {
+          modal.classList.remove("show");
+          document.body.style.overflow = "auto";
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            modal.classList.remove("show");
+            document.body.style.overflow = "auto";
+          }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && modal.classList.contains("show")) {
+            modal.classList.remove("show");
+            document.body.style.overflow = "auto";
+          }
+        });
+      });
+    </script>
   </body>
 </html>

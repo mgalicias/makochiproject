@@ -442,9 +442,18 @@ const HeroAnimation = {
     const words = text.split(" ");
     heroTitle.innerHTML = "";
 
+    let globalLetterIndex = 0;
+
     words.forEach((word, wordIndex) => {
-      const wordSpan = this.createWordElement(word, wordIndex);
+      const wordSpan = this.createWordElement(
+        word,
+        wordIndex,
+        globalLetterIndex
+      );
       heroTitle.appendChild(wordSpan);
+
+      // Update global letter index
+      globalLetterIndex += word.length;
 
       // Add space between words (except for the last word)
       if (wordIndex < words.length - 1) {
@@ -456,6 +465,36 @@ const HeroAnimation = {
         heroTitle.appendChild(spaceSpan);
       }
     });
+  },
+
+  createWordElement(word, wordIndex, startLetterIndex) {
+    const wordSpan = Utils.createElement("span", "hero-word", {
+      display: "inline-block",
+      position: "relative",
+      cursor: "pointer",
+      animation: `jumpWord 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${
+        wordIndex * CONFIG.ANIMATION_DELAYS.LETTER * 3
+      }s both`,
+      transformOrigin: "bottom center",
+    });
+
+    // Split word into letters and apply Google-like colors
+    const letters = word.split("");
+    letters.forEach((letter, letterIndex) => {
+      const letterSpan = Utils.createElement("span", "hero-letter", {
+        display: "inline-block",
+        color:
+          CONFIG.COLORS.GOOGLE[
+            (startLetterIndex + letterIndex) % CONFIG.COLORS.GOOGLE.length
+          ],
+        fontWeight: "700",
+      });
+      letterSpan.textContent = letter;
+      wordSpan.appendChild(letterSpan);
+    });
+
+    this.bindWordEvents(wordSpan);
+    return wordSpan;
   },
 
   createWordElement(word, wordIndex) {
@@ -612,66 +651,68 @@ const HeroAnimation = {
   addAnimationStyles() {
     Utils.addStyles(`
       .hero-title {
-        perspective: 1000px;
-        overflow: visible;
+      perspective: 1000px;
+      overflow: visible;
+      font-size: 5rem;
       }
       
       .hero-title .hero-word {
-        background: linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-accent));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        font-weight: 700;
-        transition: all 0.3s ease;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      }
+      
+      .hero-letter {
+      transition: all 0.3s ease;
       }
       
       .hero-space {
-        pointer-events: none;
+      pointer-events: none;
       }
       
       @keyframes jumpWord {
-        0% {
-          transform: translateY(50px) rotateX(90deg) scale(0.5);
-          opacity: 0;
-        }
-        30% {
-          transform: translateY(-15px) rotateX(0deg) scale(1.1);
-          opacity: 1;
-        }
-        60% {
-          transform: translateY(5px) scale(0.95);
-        }
-        100% {
-          transform: translateY(0) rotateX(0deg) scale(1);
-          opacity: 1;
-        }
+      0% {
+        transform: translateY(50px) rotateX(90deg) scale(0.5);
+        opacity: 0;
+      }
+      30% {
+        transform: translateY(-15px) rotateX(0deg) scale(1.1);
+        opacity: 1;
+      }
+      60% {
+        transform: translateY(5px) scale(0.95);
+      }
+      100% {
+        transform: translateY(0) rotateX(0deg) scale(1);
+        opacity: 1;
+      }
       }
       
       @keyframes wordHover {
-        0%, 100% { 
-          transform: translateY(0) scale(1) rotateZ(0deg); 
-        }
-        25% { 
-          transform: translateY(-8px) scale(1.15) rotateZ(-2deg); 
-        }
-        50% { 
-          transform: translateY(-12px) scale(1.2) rotateZ(1deg); 
-        }
-        75% { 
-          transform: translateY(-5px) scale(1.1) rotateZ(-1deg); 
-        }
+      0%, 100% { 
+        transform: translateY(0) scale(1) rotateZ(0deg); 
+      }
+      25% { 
+        transform: translateY(-8px) scale(1.15) rotateZ(-2deg); 
+      }
+      50% { 
+        transform: translateY(-12px) scale(1.2) rotateZ(1deg); 
+      }
+      75% { 
+        transform: translateY(-5px) scale(1.1) rotateZ(-1deg); 
+      }
       }
       
       .hero-word:hover {
-        transform: translateY(-5px) scale(1.05);
-        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px) scale(1.05);
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      .hero-word:hover .hero-letter {
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       }
       
       .exploding-letter {
-        background: inherit;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      color: inherit;
       }
     `);
   },
@@ -915,3 +956,14 @@ window.addEventListener(
     }
   }, 250)
 );
+
+// Fix for horario items visibility
+document.addEventListener("DOMContentLoaded", function () {
+  // Ensure horario items are visible
+  const horarioItems = document.querySelectorAll(".horario-item");
+  horarioItems.forEach((item) => {
+    item.style.opacity = "1";
+    item.style.visibility = "visible";
+    item.style.display = "block";
+  });
+});
