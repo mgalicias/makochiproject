@@ -1,0 +1,40 @@
+/* Modelo Intro Section Styles */
+.modelo-intro {
+  padding: 80px 0;
+  background: white;
+}
+
+.modelo-intro .section-title {
+  text-align: left;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+}
+
+.modelo-intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+}
+
+.modelo-intro strong {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+/* Responsive Design for Modelo Intro */
+@media screen and (max-width: 768px) {
+  .modelo-intro {
+    padding: 60px 0;
+  }
+
+  .modelo-intro .section-title {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .modelo-intro p {
+    text-align: center;
+    font-size: 1rem;
+  }
+}
