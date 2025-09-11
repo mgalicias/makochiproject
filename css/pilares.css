@@ -1,0 +1,142 @@
+/* Pilares Section Styles */
+.pilares {
+  padding: 80px 0;
+  background: white;
+}
+
+.pilares-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pilar-item {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out,
+    box-shadow 0.3s ease;
+}
+
+.pilar-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-accent)
+  );
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.pilar-item:hover::before {
+  transform: scaleX(1);
+}
+
+.pilar-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.pilar-item.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pilar-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.pilar-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+  position: relative;
+}
+
+.pilar-item h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--color-primary);
+  margin: 0.5rem auto;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.pilar-item:hover h3::after {
+  width: 60px;
+}
+
+.pilar-item p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Responsive Design for Pilares */
+@media screen and (max-width: 768px) {
+  .pilares {
+    padding: 60px 0;
+  }
+
+  .pilares-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .pilar-item {
+    padding: 1.5rem;
+  }
+
+  .pilar-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .pilar-item h3 {
+    font-size: 1.3rem;
+  }
+
+  .pilar-item p {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pilar-item {
+    padding: 1rem;
+  }
+
+  .pilar-icon {
+    font-size: 2.5rem;
+  }
+
+  .pilar-item h3 {
+    font-size: 1.2rem;
+  }
+}

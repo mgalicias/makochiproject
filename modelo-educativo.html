@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modelo Educativo - Makochi Preescolar</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/modelo-intro.css" />
+    <link rel="stylesheet" href="css/areas-desarrollo.css" />
+    <link rel="stylesheet" href="css/collage.css" />
+    <link rel="stylesheet" href="css/gallery-modal.css" />
+    <link rel="stylesheet" href="css/pilares.css" />
+    <link rel="stylesheet" href="css/talleres.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
@@ -21,7 +27,7 @@
           <div class="nav-logo">
             <a href="index.html">
               <img
-                src="images/logo.png"
+                src="images/makochi_logo_white.png"
                 alt="Makochi Preescolar"
                 class="logo"
               />
@@ -95,7 +101,6 @@
       </section>
 
       <!-- collage section -->
-
       <section class="collage-section">
         <div class="container">
           <h2 class="section-title text-center">
@@ -103,10 +108,13 @@
           </h2>
           <p class="section-description text-center">
             Explora nuestra galería de los momentos más divertidos y creativos
-            en Makochi.
+            en Makochi. ¡Haz clic en cualquier imagen para verla más grande!
           </p>
           <div class="photo-collage-grid">
-            <div class="collage-item large">
+            <div
+              class="collage-item large gallery-item"
+              data-title="¡Mini Chefs en Acción! - Explorando sabores y texturas"
+            >
               <img
                 src="images/WhatsApp Image 2025-07-24 at 1.44.32 AM (1).jpeg"
                 alt="Niños cocinando con gorros de chef"
@@ -116,7 +124,10 @@
                 <p>Explorando sabores y texturas.</p>
               </div>
             </div>
-            <div class="collage-item">
+            <div
+              class="collage-item gallery-item"
+              data-title="Aventuras en el Patio - Diversión sin límites"
+            >
               <img
                 src="images/WhatsApp Image 2025-07-24 at 1.44.32 AM (6).jpeg"
                 alt="Niño sonriendo desde un juego"
@@ -126,7 +137,10 @@
                 <p>Diversión sin límites.</p>
               </div>
             </div>
-            <div class="collage-item">
+            <div
+              class="collage-item gallery-item"
+              data-title="Día de Disfraces - ¡La imaginación vuela!"
+            >
               <img
                 src="images/WhatsApp Image 2025-07-24 at 1.44.32 AM (5).jpeg"
                 alt="Niños disfrazados de Stormtrooper y Princesa Peach"
@@ -136,7 +150,10 @@
                 <p>¡La imaginación vuela!</p>
               </div>
             </div>
-            <div class="collage-item">
+            <div
+              class="collage-item gallery-item"
+              data-title="Arte Creativo - Explorando el color"
+            >
               <img
                 src="images/WhatsApp Image 2025-07-24 at 1.44.32 AM.jpeg"
                 alt="Niña con pie pintado de verde"
@@ -146,7 +163,10 @@
                 <p>Explorando el color.</p>
               </div>
             </div>
-            <div class="collage-item">
+            <div
+              class="collage-item gallery-item"
+              data-title="Manitas Creativas - Desarrollando habilidades"
+            >
               <img
                 src="images/WhatsApp Image 2025-07-24 at 1.44.32 AM (7).jpeg"
                 alt="Niñas haciendo manualidades de manos"
@@ -156,8 +176,10 @@
                 <p>Desarrollando habilidades.</p>
               </div>
             </div>
-
-            <div class="collage-item">
+            <div
+              class="collage-item gallery-item"
+              data-title="Amor por la Naturaleza - Explorando el mundo"
+            >
               <img
                 src="images/WhatsApp Image 2025-07-24 at 1.44.32 AM (8).jpeg"
                 alt="Niño con hoja en la cabeza en un espacio verde"
@@ -170,6 +192,13 @@
           </div>
         </div>
       </section>
+
+      <!-- Image Modal -->
+      <div id="gallery-modal" class="gallery-modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image" alt="" />
+        <div id="modal-caption" class="modal-caption"></div>
+      </div>
 
       <!-- Pilares Educativos -->
       <section class="pilares">
@@ -321,13 +350,21 @@
           <h2 class="section-title text-center">Horarios</h2>
           <div class="horarios-content">
             <div class="horario-item">
+              <div class="horario-icon">🕘</div>
               <h3>Horario Regular</h3>
-              <p><strong>Lunes a Viernes:</strong> 8:30 AM - 1:30 PM</p>
+              <div class="horario-time">
+                <span class="dias">Lunes a Viernes</span>
+                <span class="tiempo">8:30 AM - 1:30 PM</span>
+              </div>
               <p>Incluye todas las actividades académicas y talleres básicos</p>
             </div>
             <div class="horario-item">
+              <div class="horario-icon">🕐</div>
               <h3>Horario Extendido</h3>
-              <p><strong>Lunes a Viernes:</strong> 7:30 AM - 5:00 PM</p>
+              <div class="horario-time">
+                <span class="dias">Lunes a Viernes</span>
+                <span class="tiempo">7:30 AM - 4:00 PM</span>
+              </div>
               <p>
                 Incluye actividades del horario regular más talleres adicionales
               </p>
@@ -342,7 +379,9 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h3>Makochi Preescolar</h3>
+            <a href="index.html"
+              ><img src="images/makochi_logo_cyan.png" alt="MakochiFooter" />
+            </a>
             <p>Educación inicial de calidad con amor y dedicación</p>
           </div>
           <div class="footer-section">
@@ -353,14 +392,37 @@
           <div class="footer-section">
             <h4>Síguenos</h4>
             <div class="social-links">
-              <a href="#" aria-label="Facebook">📘</a>
-              <a href="#" aria-label="Instagram">📷</a>
-              <a href="#" aria-label="WhatsApp">💬</a>
+              <a
+                href="https://www.facebook.com/profile.php?id=100089832392100"
+                target="_blank"
+                aria-label="Facebook"
+                ><img src="images/facebook.png" alt="Facebook" />
+              </a>
+              <a
+                href="https://instagram.com/kinder.makochi"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <img src="images/instagram.png" alt="Instagram" />
+              </a>
+              <a
+                href="https://wa.me/4421415947"
+                aria-label="WhatsApp"
+                target="_blank"
+                ><img src="images/whatsapp.png" alt="WhatsApp"
+              /></a>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Makochi Preescolar. Todos los derechos reservados.</p>
+          <p>
+            &copy; <span id="current-year"></span> Makochi Preescolar. Todos los
+            derechos reservados.
+          </p>
+          <script>
+            document.getElementById("current-year").textContent =
+              new Date().getFullYear();
+          </script>
         </div>
       </div>
     </footer>
