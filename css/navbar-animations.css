@@ -310,3 +310,19 @@
     filter: hue-rotate(270deg) brightness(1.1);
   }
 }
+
+@media (max-width: 768px) {
+  .animation-option-1 .nav-link,
+  .animation-option-2 .nav-link,
+  .animation-option-4 .nav-link,
+  .nav-link.active .letter {
+    animation: none;
+  }
+
+  .animation-option-1 .nav-link:hover,
+  .animation-option-2 .nav-link:hover,
+  .animation-option-4 .nav-link:hover {
+    transform: none;
+    text-shadow: none;
+  }
+}

@@ -56,3 +56,16 @@
 .collage-item .collage-overlay {
   position: absolute;
 }
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .collage-item {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .collage-item {
+    max-width: none;
+  }
+}

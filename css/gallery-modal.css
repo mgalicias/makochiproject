@@ -91,3 +91,15 @@
     padding: 15px;
   }
 }
+
+@media (max-width: 480px) {
+  .gallery-modal-close {
+    font-size: 25px;
+    top: -30px;
+  }
+
+  .gallery-modal-caption {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
