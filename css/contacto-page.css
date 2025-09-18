@@ -1,0 +1,429 @@
+/* Contacto Page Styles */
+
+.contacto-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.contacto-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* Contact Info */
+.contacto-info {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.contacto-info .section-title {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-family: "Bubblegum Sans", cursive;
+  text-align: left;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8f7f5 0%, #d4f0ed 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  color: #15d4bb;
+}
+
+.info-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.info-content h3 {
+  font-family: "Bubblegum Sans", cursive;
+  font-size: 1.3rem;
+  color: #2c5530;
+  margin-bottom: 5px;
+}
+
+.info-content p,
+.info-content a {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info-content a:hover {
+  color: #15d4bb;
+}
+
+/* Formulario Contacto */
+.formulario-contacto {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-contacto .section-title {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-family: "Bubblegum Sans", cursive;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-family: "Quicksand", sans-serif;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: "Quicksand", sans-serif;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #15d4bb;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(21, 212, 187, 0.2);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.checkbox-group .checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  margin-right: 12px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #15d4bb;
+  border-color: #15d4bb;
+}
+
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox::after {
+  opacity: 1;
+}
+
+.policy-link {
+  color: #15d4bb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #15d4bb 0%, #7104ff 100%);
+}
+
+/* Redes Sociales Section */
+.redes-sociales {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.redes-sociales .section-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-family: "Bubblegum Sans", cursive;
+}
+
+.redes-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+.redes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.red-social {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid transparent;
+}
+
+.red-social:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.red-social.facebook:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+.red-social.instagram:hover {
+  border-color: #e4405f;
+  color: #e4405f;
+}
+
+.red-social.whatsapp:hover {
+  border-color: #25d366;
+  color: #25d366;
+}
+
+.red-icon {
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.red-icon svg {
+  width: 40px;
+  height: 40px;
+  stroke-width: 1.5;
+  margin: 0 auto;
+}
+
+.red-social:hover .red-icon {
+  transform: scale(1.1);
+}
+
+.red-social h3 {
+  color: #2c3e50;
+  font-family: "Bubblegum Sans", cursive;
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+.red-social p {
+  color: #666;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Contact Grid Styles */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.contacto-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.contacto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-color: #ff6b6b;
+}
+
+.contacto-card .card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff6b6b, #ffa726);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  color: white;
+}
+
+.contacto-card h3 {
+  font-family: "Bubblegum Sans", cursive;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.contacto-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.contacto-card a {
+  color: #ff6b6b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contacto-card a:hover {
+  color: #ff4757;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .contacto-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacto-section {
+    padding: 60px 20px;
+  }
+
+  .contacto-wrapper {
+    gap: 40px;
+  }
+
+  .contacto-info,
+  .formulario-contacto {
+    padding: 30px;
+  }
+
+  .contacto-info .section-title,
+  .formulario-contacto .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .info-item {
+    margin-bottom: 25px;
+  }
+
+  .info-icon {
+    width: 45px;
+    height: 45px;
+    margin-right: 15px;
+  }
+
+  .info-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .info-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .info-content p,
+  .info-content a {
+    font-size: 0.95rem;
+  }
+
+  .redes-sociales {
+    padding: 60px 20px;
+  }
+
+  .redes-sociales .section-title {
+    font-size: 2rem;
+  }
+
+  .redes-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+
+  .contacto-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .contacto-card {
+    padding: 1.5rem;
+  }
+
+  .contacto-card .card-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .contacto-card h3 {
+    font-size: 1.3rem;
+  }
+}

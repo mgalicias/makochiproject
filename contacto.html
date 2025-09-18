@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacto - Makochi Preescolar</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/areas-desarrollo.css" />
+    <link rel="stylesheet" href="css/contacto-page.css" />
+    <link rel="stylesheet" href="css/navbar-animations.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -17,12 +18,12 @@
   <body>
     <!-- Header -->
     <header class="header">
-      <nav class="navbar">
+      <nav class="navbar animation-option-3">
         <div class="nav-container">
           <div class="nav-logo">
             <a href="index.html">
               <img
-                src="images/makochi_logo_white.png"
+                src="images/logo-header.png"
                 alt="Makochi Preescolar"
                 class="logo"
               />
@@ -62,143 +63,112 @@
           <h1 class="hero-title">Contáctanos</h1>
           <p class="hero-subtitle">
             Estamos aquí para resolver todas tus dudas y acompañarte en este
-            importante paso
+            importante paso.
           </p>
         </div>
       </section>
 
-      <!-- Información de Contacto -->
-      <section class="contacto-info">
+      <!-- Contact Section -->
+      <section class="contacto-section">
         <div class="container">
+          <h2 class="section-title text-center">Información de Contacto</h2>
           <div class="contacto-grid">
-            <div class="contacto-info">
-              <h2 class="section-title">Información de Contacto</h2>
-              <div class="info-item">
-                <div class="info-icon">📍</div>
-                <div class="info-content">
-                  <h3>Dirección</h3>
-                  <p>Nogal 800, Col. Arboledas, C.P. 76140, Querétaro, Qro.</p>
-                </div>
+            <!-- Card 1 - Dirección -->
+            <div class="contacto-card">
+              <div class="card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
               </div>
-              <div class="info-item">
-                <div class="info-icon">📞</div>
-                <div class="info-content">
-                  <h3>Teléfonos</h3>
-                  <p>
-                    <a
-                      href="https://wa.me/524421415947"
-                      target="_blank"
-                      aria-label="WhatsApp"
-                    >
-                      (442) 141-5947</a
-                    >
-                  </p>
-                </div>
-              </div>
-
-              <div class="info-item">
-                <div class="info-icon">📧</div>
-                <div class="info-content">
-                  <h3>Correo Electrónico</h3>
-                  <p>contacto@makochipreescolar.mx</p>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="info-icon">🕒</div>
-                <div class="info-content">
-                  <h3>Horarios de Atención</h3>
-                  <p>
-                    <strong>Lunes a Viernes:</strong> 7:00 AM - 6:00 PM<br />
-                  </p>
-                </div>
-              </div>
+              <h3>Dirección</h3>
+              <p>Nogal 800, Col. Arboledas, C.P. 76140, Querétaro, Qro.</p>
             </div>
 
-            <!-- Formulario de Contacto -->
-            <div class="formulario-contacto">
-              <h2 class="section-title">Envíanos un Mensaje</h2>
-              <form
-                action="mailto:mgs93.c0de@gmail.com"
-                method="post"
-                enctype="text/plain"
-                class="contact-form"
-              >
-                <div class="form-group">
-                  <label for="nombre">Nombre Completo *</label>
-                  <input type="text" id="nombre" name="nombre" required />
-                </div>
-                <div class="form-group">
-                  <label for="email">Correo Electrónico *</label>
-                  <input type="email" id="email" name="email" required />
-                </div>
-                <div class="form-group">
-                  <label for="telefono">Teléfono</label>
-                  <input type="tel" id="telefono" name="telefono" />
-                </div>
-                <div class="form-group">
-                  <label for="asunto">Asunto *</label>
-                  <select id="asunto" name="asunto" required>
-                    <option value="">Selecciona un asunto</option>
-                    <option value="informacion-general">
-                      Información General
-                    </option>
-                    <option value="proceso-admision">
-                      Proceso de Admisión
-                    </option>
-                    <option value="visita-instalaciones">
-                      Visita a Instalaciones
-                    </option>
-                    <option value="costos-colegiaturas">
-                      Costos y Colegiaturas
-                    </option>
-                    <option value="modelo-educativo">Modelo Educativo</option>
-                    <option value="horarios-servicios">
-                      Horarios y Servicios
-                    </option>
-                    <option value="otro">Otro</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="edad-hijo">Edad de tu hijo/a</label>
-                  <select id="edad-hijo" name="edad-hijo">
-                    <option value="">Selecciona la edad</option>
-                    <option value="2-anos">2 años</option>
-                    <option value="3-anos">3 años</option>
-                    <option value="4-anos">4 años</option>
-                    <option value="5-anos">5 años</option>
-                    <option value="6-anos">6 años</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="mensaje">Mensaje *</label>
-                  <textarea
-                    id="mensaje"
-                    name="mensaje"
-                    rows="5"
-                    required
-                    placeholder="Cuéntanos en qué podemos ayudarte..."
-                  ></textarea>
-                </div>
-                <div class="form-group checkbox-group">
-                  <label class="checkbox-label">
-                    <input type="checkbox" name="politicas" required />
-                    <span class="checkmark"></span>
-                    Acepto las políticas de privacidad y el tratamiento de mis
-                    datos personales
-                  </label>
-                </div>
-                <div class="form-group checkbox-group">
-                  <label class="checkbox-label">
-                    <input type="checkbox" name="newsletter" />
-                    <span class="checkmark"></span>
-                    Deseo recibir información sobre eventos y noticias del
-                    preescolar
-                  </label>
-                </div>
-                <button type="submit" class="btn btn-primary">
-                  Enviar Mensaje
-                </button>
-              </form>
+            <!-- Card 2 - Teléfono -->
+            <div class="contacto-card">
+              <div class="card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+              </div>
+              <h3>Teléfono</h3>
+              <p>
+                <a
+                  href="https://wa.me/524421415947"
+                  target="_blank"
+                  aria-label="WhatsApp"
+                  >(442) 141-5947</a
+                >
+              </p>
+            </div>
+
+            <!-- Card 3 - Email -->
+            <div class="contacto-card">
+              <div class="card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </div>
+              <h3>Correo Electrónico</h3>
+              <p>contacto@makochipreescolar.mx</p>
+            </div>
+
+            <!-- Card 4 - Horarios -->
+            <div class="contacto-card">
+              <div class="card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3>Horarios de Atención</h3>
+              <p><strong>Lunes a Viernes:</strong> 8:30 AM - 1:30 PM</p>
             </div>
           </div>
         </div>
@@ -209,83 +179,16 @@
         <div class="container">
           <h2 class="section-title text-center">Nuestra Ubicación</h2>
           <div class="mapa-container">
-            <!-- <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.8!2d-99.1677!3d19.4269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f8b0f3e4a5b7%3A0x1234567890abcdef!2sAv.%20Revoluci%C3%B3n%2C%20Ciudad%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1234567890123!5m2!1ses!2smx" 
-                        width="100%" 
-                        height="400" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Ubicación de Makochi Preescolar">
-                    </iframe> -->
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14937.576412036278!2d-100.39226710796356!3d20.61278694718061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b00733de833%3A0x4fd30ed642417fd0!2sMakochi%20Preeschool!5e0!3m2!1ses!2smx!4v1753137147973!5m2!1ses!2smx"
               width="100%"
-              height="400"
+              height="450"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               title="Ubicación de Makochi Preescolar"
             ></iframe>
-          </div>
-          <!-- <div class="ubicacion-info">
-            <div class="transporte-grid">
-              <div class="transporte-item">
-                <h4>🚗 En Auto</h4>
-                <p>
-                Contamos con estacionamiento gratuito para padres de familia
-                </p>
-              </div>
-              <div class="transporte-item">
-                <h4>🚌 Transporte Público</h4>
-                <p>Metro Revolución (Línea 2) a 3 cuadras de distancia</p>
-              </div>
-              <div class="transporte-item">
-                <h4>🚐 Transporte Escolar</h4>
-                <p>Servicio disponible para diferentes zonas de la ciudad</p>
-              </div>
-            </div>
-          </div> -->
-        </div>
-      </section>
-
-      <!-- Preguntas Rápidas -->
-      <section class="preguntas-rapidas">
-        <div class="container">
-          <h2 class="section-title text-center">Preguntas Frecuentes</h2>
-          <div class="faq-contacto">
-            <div class="faq-item-contacto">
-              <h3>¿Puedo agendar una visita?</h3>
-              <p>
-                ¡Por supuesto! Contáctanos para agendar una visita guiada donde
-                conocerás nuestras instalaciones y podrás platicar con nuestro
-                equipo directivo.
-              </p>
-            </div>
-            <div class="faq-item-contacto">
-              <h3>¿Cuándo inician las inscripciones?</h3>
-              <p>
-                El proceso de inscripciones para el ciclo 2025-2026 inicia en
-                enero. Te recomendamos contactarnos desde diciembre para apartar
-                lugar.
-              </p>
-            </div>
-            <div class="faq-item-contacto">
-              <h3>¿Ofrecen becas o descuentos?</h3>
-              <p>
-                Sí, contamos con diferentes opciones de apoyo económico. Agenda
-                una cita para conocer los requisitos y disponibilidad.
-              </p>
-            </div>
-            <div class="faq-item-contacto">
-              <h3>¿Qué documentos necesito para inscribir a mi hijo?</h3>
-              <p>
-                La lista completa de documentos la encontrarás en nuestra
-                sección de admisiones o te la proporcionamos durante la visita.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -294,46 +197,78 @@
       <section class="redes-sociales">
         <div class="container">
           <h2 class="section-title text-center">Síguenos en Redes Sociales</h2>
-          <p class="redes-subtitle text-center">
-            Mantente al día con nuestras actividades, eventos y noticias
-          </p>
           <div class="redes-grid">
-            <a href="#" class="red-social facebook">
-              <div class="red-icon">📘</div>
+            <a
+              href="https://www.facebook.com/profile.php?id=100089832392100"
+              class="red-social facebook"
+            >
+              <div class="red-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </div>
               <h3>Facebook</h3>
               <p>@MakochiPreescolar</p>
             </a>
-            <a href="#" class="red-social instagram">
-              <div class="red-icon">📷</div>
+            <a
+              href="https://instagram.com/kinder.makochi"
+              class="red-social instagram"
+            >
+              <div class="red-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
               <h3>Instagram</h3>
-              <p>@makochi_preescolar</p>
+              <p>@kinder.makochi</p>
             </a>
-            <a href="#" class="red-social whatsapp">
-              <div class="red-icon">💬</div>
+            <a href="https://wa.me/524421415947" class="red-social whatsapp">
+              <div class="red-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  ></path>
+                </svg>
+              </div>
               <h3>WhatsApp</h3>
-              <p>(55) 9876-5432</p>
+              <p>(442) 141-5947</p>
             </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Call to Action -->
-      <section class="cta-contacto">
-        <div class="container">
-          <div class="cta-content">
-            <h2>¿Tienes más preguntas?</h2>
-            <p>
-              Nuestro equipo está listo para atenderte y resolver todas tus
-              dudas
-            </p>
-            <div class="cta-buttons">
-              <a
-                href="https://wa.me/4421415947"
-                class="btn btn-secondary"
-                target="_blank"
-                >WhatsApp</a
-              >
-            </div>
           </div>
         </div>
       </section>
@@ -345,9 +280,9 @@
         <div class="footer-content">
           <div class="footer-section">
             <a href="index.html"
-              ><img src="images/makochi_logo_cyan.png" alt="MakochiFooter" />
-            </a>
-            <p>Educación inicial de calidad con amor y dedicación</p>
+              ><img src="images/logo-footer.png" alt="MakochiFooter"
+            /></a>
+            <p>Educación inicial de calidad con amor y dedicación.</p>
           </div>
           <div class="footer-section">
             <h4>Contacto</h4>
@@ -361,20 +296,19 @@
                 href="https://www.facebook.com/profile.php?id=100089832392100"
                 target="_blank"
                 aria-label="Facebook"
-                ><img src="images/facebook.png" alt="Facebook" />
-              </a>
+                ><img src="images/social-facebook.png" alt="Facebook"
+              /></a>
               <a
                 href="https://instagram.com/kinder.makochi"
                 target="_blank"
                 aria-label="Instagram"
-              >
-                <img src="images/instagram.png" alt="Instagram" />
-              </a>
+                ><img src="images/social-instagram.png" alt="Instagram"
+              /></a>
               <a
-                href="https://wa.me/4421415947"
+                href="https://wa.me/524421415947"
                 aria-label="WhatsApp"
                 target="_blank"
-                ><img src="images/whatsapp.png" alt="WhatsApp"
+                ><img src="images/social-whatsapp.png" alt="WhatsApp"
               /></a>
             </div>
           </div>
@@ -384,14 +318,14 @@
             &copy; <span id="current-year"></span> Makochi Preescolar. Todos los
             derechos reservados.
           </p>
-          <script>
-            document.getElementById("current-year").textContent =
-              new Date().getFullYear();
-          </script>
         </div>
       </div>
     </footer>
 
+    <script>
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
     <script src="js/main.js"></script>
   </body>
 </html>

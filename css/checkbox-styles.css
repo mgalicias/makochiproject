@@ -1,0 +1,255 @@
+/* ===== CHECKBOX STYLES OPTIONS ===== */
+
+/* Option 1: Modern Custom Checkbox with SVG checkmark */
+.checkbox-group .checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-label:hover .custom-checkbox {
+  border-color: #4caf50;
+}
+
+.checkbox-group input[type="checkbox"]:checked + .custom-checkbox {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+
+.checkbox-icon {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  fill: white;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.checkbox-group
+  input[type="checkbox"]:checked
+  + .custom-checkbox
+  .checkbox-icon {
+  opacity: 1;
+}
+
+.checkbox-text {
+  color: #333;
+}
+
+.policy-link {
+  color: #4caf50;
+  text-decoration: underline;
+}
+
+.policy-link:hover {
+  color: #45a049;
+}
+
+/* ===== ALTERNATIVE STYLES ===== */
+
+/* Option 2: Rounded Toggle Style */
+.checkbox-group.toggle-style .custom-checkbox {
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  border: 2px solid #ddd;
+  background: #f0f0f0;
+  position: relative;
+}
+
+.checkbox-group.toggle-style .custom-checkbox::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  top: 0px;
+  left: 0px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.checkbox-group.toggle-style input[type="checkbox"]:checked + .custom-checkbox {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+
+.checkbox-group.toggle-style
+  input[type="checkbox"]:checked
+  + .custom-checkbox::after {
+  left: 20px;
+}
+
+/* Option 3: Circular Checkbox with Animation */
+.checkbox-group.circular-style .custom-checkbox {
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  background: white;
+}
+
+.checkbox-group.circular-style
+  input[type="checkbox"]:checked
+  + .custom-checkbox {
+  background: #4caf50;
+  border-color: #4caf50;
+  animation: checkboxPulse 0.3s ease;
+}
+
+@keyframes checkboxPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Option 4: Material Design Style */
+.checkbox-group.material-style .custom-checkbox {
+  border: 2px solid #757575;
+  border-radius: 2px;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.checkbox-group.material-style .custom-checkbox::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #4caf50;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  opacity: 0.12;
+}
+
+.checkbox-group.material-style .checkbox-label:hover .custom-checkbox::before {
+  transform: scale(1);
+}
+
+.checkbox-group.material-style
+  input[type="checkbox"]:checked
+  + .custom-checkbox {
+  border-color: #4caf50;
+  background: #4caf50;
+}
+
+/* Option 5: iOS-style Switch */
+.checkbox-group.ios-style .custom-checkbox {
+  width: 44px;
+  height: 26px;
+  border-radius: 26px;
+  border: none;
+  background: #e0e0e0;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.checkbox-group.ios-style .custom-checkbox::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.checkbox-group.ios-style input[type="checkbox"]:checked + .custom-checkbox {
+  background: #4caf50;
+}
+
+.checkbox-group.ios-style
+  input[type="checkbox"]:checked
+  + .custom-checkbox::after {
+  left: 20px;
+}
+
+/* Option 6: Checkbox with custom colors for Makochi brand */
+.checkbox-group.makochi-style .custom-checkbox {
+  border: 2px solid #ff6b9d;
+  background: white;
+  border-radius: 6px;
+}
+
+.checkbox-group.makochi-style .checkbox-label:hover .custom-checkbox {
+  border-color: #ff8fa3;
+  box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+}
+
+.checkbox-group.makochi-style
+  input[type="checkbox"]:checked
+  + .custom-checkbox {
+  background: linear-gradient(135deg, #ff6b9d, #4ecdc4);
+  border-color: #ff6b9d;
+}
+
+.checkbox-group.makochi-style .checkbox-icon {
+  fill: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .checkbox-group .checkbox-label {
+    font-size: 13px;
+  }
+
+  .custom-checkbox {
+    width: 18px;
+    height: 18px;
+  }
+
+  .checkbox-group.toggle-style .custom-checkbox {
+    width: 36px;
+    height: 18px;
+  }
+
+  .checkbox-group.ios-style .custom-checkbox {
+    width: 40px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkbox-group .checkbox-label {
+    font-size: 12px;
+  }
+
+  .custom-checkbox {
+    width: 16px;
+    height: 16px;
+  }
+}

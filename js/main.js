@@ -376,46 +376,122 @@ const Gallery = {
     this.modal = modal;
     this.modalImage = Utils.getElement("#modal-image");
     this.modalCaption = Utils.getElement("#modal-caption");
+
+    // Ensure modal is properly hidden on initialization
+    this.modal.style.display = "none";
+    this.modal.classList.remove("show");
+    document.body.style.overflow = "auto";
+
     this.bindEvents();
   },
 
   bindEvents() {
-    const galleryItems = Utils.getElements(".gallery-item");
+    // Bind events for both gallery structures
+    const galleryItems = Utils.getElements(
+      ".photo-collage-grid .gallery-item, .photo-collage .collage-item"
+    );
     const closeBtn = Utils.getElement(".close");
 
     galleryItems.forEach((item) => {
-      item.addEventListener("click", this.openModal.bind(this));
+      item.addEventListener("click", (event) => {
+        this.openModal(event);
+      });
     });
 
-    closeBtn?.addEventListener("click", this.closeModal.bind(this));
-    this.modal.addEventListener("click", this.handleModalClick.bind(this));
-    document.addEventListener("keydown", this.handleKeyDown.bind(this));
+    if (closeBtn) {
+      closeBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        this.closeModal();
+      });
+    }
+
+    if (this.modal) {
+      this.modal.addEventListener("click", (event) =>
+        this.handleModalClick(event)
+      );
+    }
+
+    document.addEventListener("keydown", (event) => this.handleKeyDown(event));
   },
 
   openModal(event) {
-    const img = event.currentTarget.querySelector("img");
-    const title = event.currentTarget.getAttribute("data-title") || img.alt;
+    event.preventDefault();
+    event.stopPropagation();
 
-    this.modalImage.src = img.src;
-    this.modalImage.alt = img.alt;
-    this.modalCaption.textContent = title;
-    this.modal.style.display = "block";
+    const item = event.currentTarget;
+    const img = item.querySelector("img");
+
+    if (!img) {
+      return;
+    }
+
+    // Get image source
+    const fullSrc = img.getAttribute("data-full-src") || img.src;
+
+    if (!fullSrc) {
+      return;
+    }
+
+    // Get title
+    let title = item.getAttribute("data-title");
+    if (!title) {
+      const h3 = item.querySelector(".collage-overlay h3");
+      const p = item.querySelector(".collage-overlay p");
+      title = (h3 ? h3.textContent : "") + (p ? ` - ${p.textContent}` : "");
+    }
+
+    // Set modal content
+    if (this.modalImage) {
+      this.modalImage.src = fullSrc;
+      this.modalImage.alt = img.alt || title || "Imagen de galería";
+    }
+
+    if (this.modalCaption) {
+      this.modalCaption.innerHTML = title || "";
+    }
+
+    // Show modal - use flex display for better centering
+    this.modal.style.display = "flex";
+    this.modal.classList.add("show");
     document.body.style.overflow = "hidden";
+
+    // Fade in effect
+    setTimeout(() => {
+      this.modal.style.opacity = "1";
+    }, 10);
   },
 
   closeModal() {
-    this.modal.style.display = "none";
-    document.body.style.overflow = "auto";
+    if (!this.modal) return;
+
+    // Fade out
+    this.modal.style.opacity = "0";
+
+    setTimeout(() => {
+      this.modal.style.display = "none";
+      this.modal.classList.remove("show");
+      document.body.style.overflow = "auto";
+
+      // Clear content
+      if (this.modalImage) {
+        this.modalImage.src = "";
+        this.modalImage.alt = "";
+      }
+      if (this.modalCaption) {
+        this.modalCaption.innerHTML = "";
+      }
+    }, 200);
   },
 
   handleModalClick(event) {
+    // Close modal when clicking on the modal background (not on image or content)
     if (event.target === this.modal) {
       this.closeModal();
     }
   },
 
   handleKeyDown(event) {
-    if (event.key === "Escape" && this.modal.style.display === "block") {
+    if (event.key === "Escape" && this.modal.classList.contains("show")) {
       this.closeModal();
     }
   },
@@ -497,22 +573,6 @@ const HeroAnimation = {
     return wordSpan;
   },
 
-  createWordElement(word, wordIndex) {
-    const wordSpan = Utils.createElement("span", "hero-word", {
-      display: "inline-block",
-      position: "relative",
-      cursor: "pointer",
-      animation: `jumpWord 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${
-        wordIndex * CONFIG.ANIMATION_DELAYS.LETTER * 3
-      }s both`,
-      transformOrigin: "bottom center",
-    });
-
-    wordSpan.textContent = word;
-    this.bindWordEvents(wordSpan);
-    return wordSpan;
-  },
-
   bindWordEvents(wordSpan) {
     let clickCount = 0;
     let clickTimer = null;
@@ -563,19 +623,39 @@ const HeroAnimation = {
   },
 
   animateWordExplosion(wordElement) {
-    const originalTransform = wordElement.style.transform;
-    const originalText = wordElement.textContent;
+    // Clear any pending restore to avoid race conditions on rapid double-clicks
+    if (wordElement.__restoreTimer) {
+      clearTimeout(wordElement.__restoreTimer);
+      wordElement.__restoreTimer = null;
+    }
 
-    // Create explosion effect by temporarily splitting into letters
-    const letters = originalText.split("");
+    // Cache original HTML so we can restore the exact structure and styles
+    const originalHTML =
+      wordElement.dataset.originalHtml || wordElement.innerHTML;
+    wordElement.dataset.originalHtml = originalHTML;
+
+    // Capture current letters and their computed colors
+    const letterNodes = Array.from(
+      wordElement.querySelectorAll(".hero-letter")
+    );
+    const lettersData = letterNodes.length
+      ? letterNodes.map((node) => ({
+          char: node.textContent || "",
+          color: getComputedStyle(node).color,
+        }))
+      : (wordElement.textContent || "")
+          .split("")
+          .map((ch) => ({ char: ch, color: "" }));
+
+    // Replace content with exploding letters preserving colors
     wordElement.innerHTML = "";
-
-    letters.forEach((letter, index) => {
+    lettersData.forEach((item, index) => {
       const letterSpan = Utils.createElement("span", "exploding-letter", {
         display: "inline-block",
         position: "relative",
+        color: item.color || "inherit",
       });
-      letterSpan.textContent = letter;
+      letterSpan.textContent = item.char;
       wordElement.appendChild(letterSpan);
 
       letterSpan.animate(
@@ -603,9 +683,11 @@ const HeroAnimation = {
       );
     });
 
-    // Restore original text after animation
-    setTimeout(() => {
-      wordElement.innerHTML = originalText;
+    // Restore original HTML (colored letters and structure) after animation
+    wordElement.__restoreTimer = setTimeout(() => {
+      wordElement.innerHTML = wordElement.dataset.originalHtml || originalHTML;
+      delete wordElement.dataset.originalHtml;
+      wordElement.__restoreTimer = null;
     }, 1200);
   },
 
@@ -653,7 +735,7 @@ const HeroAnimation = {
       .hero-title {
       perspective: 1000px;
       overflow: visible;
-      font-size: 5rem;
+      /* font-size controlled via CSS for responsive behavior */
       }
       
       .hero-title .hero-word {
@@ -840,7 +922,7 @@ const ScrollAnimations = {
     if (!window.IntersectionObserver) {
       // Fallback for old browsers
       Utils.getElements(
-        ".card, .team-member, .pilar-item, .area-card, .taller-card, .gallery-item, .caracteristica-item, .paso-item, .costo-card, .fecha-item, .faq-item"
+        ".card, .team-member, .pilar-item, .area-card, .taller-card, .gallery-item, .collage-item, .caracteristica-item, .paso-item, .costo-card, .fecha-item, .faq-item"
       ).forEach((element) => element.classList.add("animate-in"));
       return;
     }
@@ -860,7 +942,7 @@ const ScrollAnimations = {
     );
 
     Utils.getElements(
-      ".card, .team-member, .pilar-item, .area-card, .taller-card, .gallery-item, .caracteristica-item, .paso-item, .costo-card, .fecha-item, .faq-item"
+      ".card, .team-member, .pilar-item, .area-card, .taller-card, .gallery-item, .collage-item, .caracteristica-item, .paso-item, .costo-card, .fecha-item, .faq-item"
     ).forEach((element) => observer.observe(element));
 
     this.addScrollAnimationStyles();
@@ -891,7 +973,7 @@ const ScrollAnimations = {
 
   addScrollAnimationStyles() {
     Utils.addStyles(`
-      .card, .team-member, .pilar-item, .area-card, .taller-card, .gallery-item, .caracteristica-item, .paso-item, .costo-card, .fecha-item, .faq-item {
+      .card, .team-member, .pilar-item, .area-card, .taller-card, .gallery-item, .collage-item, .caracteristica-item, .paso-item, .costo-card, .fecha-item, .faq-item {
         opacity: 0;
         transform: translateY(30px);
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -900,6 +982,286 @@ const ScrollAnimations = {
       .animate-in {
         opacity: 1;
         transform: translateY(0);
+      }
+      
+      /* Gallery Modal Styles - Fixed */
+      #gallery-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 9999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      #gallery-modal.show {
+        display: flex !important;
+      }
+      
+      .gallery-item {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+      
+      .gallery-item:hover {
+        transform: scale(1.02);
+      }
+      
+      /* Instalaciones Gallery Styles Override */
+      .photo-collage-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem 0;
+      }
+
+      .photo-collage-grid .gallery-item {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .photo-collage-grid .gallery-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      .photo-collage-grid .gallery-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .photo-collage-grid .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .photo-collage-grid .collage-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: white;
+        padding: 2rem 1.5rem 1.5rem;
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .photo-collage-grid .gallery-item:hover .collage-overlay {
+        transform: translateY(-5px);
+      }
+
+      .photo-collage-grid .collage-overlay h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: white;
+      }
+
+      .photo-collage-grid .collage-overlay p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin: 0;
+        opacity: 0.9;
+      }
+      
+      /* Photo Collage Masonry Layout for Modelo Educativo */
+      .photo-collage {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        padding: 2rem 0;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .collage-item {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .collage-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .collage-item img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .collage-item:hover img {
+        transform: scale(1.08);
+      }
+
+      .collage-item .collage-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        color: white;
+        padding: 1.5rem 1rem 1rem;
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .collage-item:hover .collage-overlay {
+        transform: translateY(-3px);
+      }
+
+      .collage-item .collage-overlay h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .collage-item .collage-overlay p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+        margin: 0;
+        opacity: 0.95;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+      }
+
+      /* Special grid positioning for first items */
+      .collage-item:nth-child(1) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .collage-item:nth-child(2) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .collage-item:nth-child(3) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .photo-collage {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          padding: 1rem 0;
+        }
+        
+        .collage-item {
+          grid-column: span 1 !important;
+          grid-row: span 1 !important;
+        }
+        
+        .collage-item img {
+          height: 200px;
+        }
+        
+        .photo-collage-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        
+        .photo-collage-grid .gallery-item img {
+          height: 200px;
+        }
+      }
+      
+      /* Modal Content Styles */
+      .modal-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        margin: auto;
+        display: block;
+        text-align: center;
+      }
+      
+      #modal-image {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 70vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      
+      #modal-caption {
+        color: white;
+        text-align: center;
+        padding: 1.5rem 2rem;
+        margin-top: 1.5rem;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+        border-radius: 12px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        font-weight: 500;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+      }
+      
+      #modal-caption h3 {
+        color: #ffffff;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      
+      #modal-caption p {
+        color: #e2e8f0;
+        margin: 0;
+        font-size: 1rem;
+      }
+      
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10000;
+        background: rgba(0, 0, 0, 0.7);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+      }
+      
+      .close:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+        transform: scale(1.1);
+        border-color: rgba(255, 255, 255, 0.5);
       }
       
       @keyframes slideIn {
@@ -914,6 +1276,25 @@ const ScrollAnimations = {
     `);
   },
 };
+
+// Function to split active nav link text into individual letters
+function initActiveNavAnimation() {
+  const activeNavLink = document.querySelector(".nav-link.active");
+
+  if (activeNavLink) {
+    const text = activeNavLink.textContent;
+    activeNavLink.innerHTML = "";
+
+    // Split text into individual letters and wrap each in a span
+    for (let i = 0; i < text.length; i++) {
+      const letter = text[i];
+      const span = document.createElement("span");
+      span.classList.add("letter");
+      span.textContent = letter === " " ? "\u00A0" : letter; // Non-breaking space for spaces
+      activeNavLink.appendChild(span);
+    }
+  }
+}
 
 // The mobile navigation is already handled by the Navigation module above
 
@@ -932,6 +1313,8 @@ const App = {
 
     // Add compatibility checks
     this.addCompatibilityFixes();
+    this.initHorarioFix();
+    this.initA11y();
   },
 
   addCompatibilityFixes() {
@@ -940,30 +1323,48 @@ const App = {
       NodeList.prototype.forEach = Array.prototype.forEach;
     }
   },
+
+  initHorarioFix() {
+    // Ensure horario items are visible
+    const horarioItems = document.querySelectorAll(".horario-item");
+    horarioItems.forEach((item) => {
+      item.style.opacity = "1";
+      item.style.visibility = "visible";
+      item.style.display = "block";
+    });
+  },
+
+  initA11y() {
+    var grids = document.querySelectorAll(
+      ".photo-collage-grid, .photo-collage"
+    );
+    grids.forEach(function (grid) {
+      if (grid) grid.setAttribute("role", "list");
+    });
+
+    var items = document.querySelectorAll(".gallery-item, .collage-item");
+    items.forEach(function (el) {
+      el.setAttribute("role", "listitem");
+      el.setAttribute("tabindex", "0");
+      var title = el.getAttribute("data-title");
+      if (!title) {
+        var h3 = el.querySelector(".collage-overlay h3");
+        title = h3 ? h3.textContent.trim() : "Imagen de galería";
+      }
+      el.setAttribute("aria-label", title);
+      el.addEventListener("keydown", function (e) {
+        var key = e.key || e.code;
+        if (key === "Enter" || key === " " || key === "Spacebar") {
+          e.preventDefault();
+          el.click();
+        }
+      });
+    });
+  },
 };
 
 // ===== DOCUMENT READY =====
 document.addEventListener("DOMContentLoaded", () => {
   App.init();
-});
-
-// ===== WINDOW EVENTS =====
-window.addEventListener(
-  "resize",
-  Utils.debounce(() => {
-    if (window.innerWidth >= 768) {
-      Navigation.closeMenu();
-    }
-  }, 250)
-);
-
-// Fix for horario items visibility
-document.addEventListener("DOMContentLoaded", function () {
-  // Ensure horario items are visible
-  const horarioItems = document.querySelectorAll(".horario-item");
-  horarioItems.forEach((item) => {
-    item.style.opacity = "1";
-    item.style.visibility = "visible";
-    item.style.display = "block";
-  });
+  initActiveNavAnimation();
 });

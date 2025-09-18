@@ -237,7 +237,7 @@
   display: block;
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-primary);
   font-family: var(--font-display);
   transition: color 0.3s ease;
 }

@@ -1,0 +1,320 @@
+/* Instalaciones Gallery Styles */
+.instalaciones-intro {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.instalaciones-intro .section-title {
+  text-align: left;
+  margin-bottom: 30px;
+  color: var(--color-dark-text);
+}
+
+/* Gallery Section */
+.instalaciones-gallery {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fffe 0%, #e8f8f5 100%);
+}
+
+.gallery-header {
+  margin-bottom: 60px;
+}
+
+.gallery-header .section-title {
+  font-size: 2.5rem;
+  color: #2c5530;
+  margin-bottom: 20px;
+  font-family: "Bubblegum Sans", cursive;
+}
+
+.gallery-header .section-description {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Photo Collage Grid */
+.photo-collage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  align-items: start;
+}
+
+/* Gallery Items */
+.gallery-item {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Collage Overlay */
+.collage-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  color: white;
+  padding: 25px 20px 20px;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.collage-overlay h3 {
+  font-family: "Bubblegum Sans", cursive;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.collage-overlay p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Gallery Modal */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.3s ease;
+}
+
+.gallery-modal .modal-content {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 800px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: slideIn 0.3s ease;
+}
+
+.gallery-modal .modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-modal .close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2001;
+}
+
+.gallery-modal .close:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+  color: #ffd93d;
+}
+
+.gallery-modal .modal-caption {
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-70%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .instalaciones-intro,
+  .instalaciones-gallery {
+    padding: 60px 0;
+  }
+
+  .gallery-header .section-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .gallery-header .section-description {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+
+  .photo-collage-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .gallery-item img {
+    height: 220px;
+  }
+
+  .collage-overlay {
+    padding: 20px 15px 15px;
+  }
+
+  .collage-overlay h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+
+  .collage-overlay p {
+    font-size: 0.85rem;
+  }
+
+  .gallery-modal .modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .gallery-modal .close {
+    top: 10px;
+    right: 20px;
+    font-size: 35px;
+  }
+
+  .gallery-modal .modal-caption {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .instalaciones-intro,
+  .instalaciones-gallery {
+    padding: 50px 0;
+  }
+
+  .gallery-header .section-title {
+    font-size: 1.8rem;
+  }
+
+  .photo-collage-grid {
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .gallery-item img {
+    height: 200px;
+  }
+
+  .collage-overlay {
+    padding: 15px 12px 12px;
+  }
+
+  .collage-overlay h3 {
+    font-size: 1.1rem;
+  }
+
+  .collage-overlay p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Image Container Optimization */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+/* Collage Item Specific Styles */
+.collage-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.collage-item .image-container {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Fix for overlay positioning */
+.collage-item.gallery-item {
+  position: relative;
+}
+
+.collage-item .collage-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
