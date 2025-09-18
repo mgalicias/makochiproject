@@ -1,0 +1,219 @@
+/* CTA Admisiones Section Styles */
+.cta-admisiones {
+  padding: 80px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(21, 212, 187, 0.1) 0%,
+    rgba(113, 4, 255, 0.1) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-admisiones::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='pattern' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'><circle cx='10' cy='10' r='1' fill='%23ffffff' opacity='0.1'/></pattern></defs><rect width='100' height='100' fill='url(%23pattern)'/></svg>");
+  opacity: 0.5;
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-admisiones h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-family: "Bubblegum Sans", cursive;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.cta-admisiones p {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.cta-admisiones .btn {
+  display: inline-block;
+  padding: 18px 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(21, 212, 187, 0.897) 0%,
+    rgba(113, 4, 255, 0.9) 100%
+  );
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "Quicksand", sans-serif;
+  box-shadow: 0 10px 30px rgba(21, 212, 187, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-admisiones .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.cta-admisiones .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(21, 212, 187, 0.4);
+}
+
+.cta-admisiones .btn:hover::before {
+  left: 100%;
+}
+
+/* CTA Contacto Section Styles */
+.cta-contacto {
+  padding: 80px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(21, 212, 187, 0.1) 0%,
+    rgba(113, 4, 255, 0.1) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-contacto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='pattern' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'><circle cx='10' cy='10' r='1' fill='%23ffffff' opacity='0.1'/></pattern></defs><rect width='100' height='100' fill='url(%23pattern)'/></svg>");
+  opacity: 0.5;
+}
+
+.cta-contacto .cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-contacto h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-family: "Bubblegum Sans", cursive;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.cta-contacto p {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-contacto .btn {
+  display: inline-block;
+  padding: 18px 40px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "Quicksand", sans-serif;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-contacto .btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(21, 212, 187, 0.897) 0%,
+    rgba(113, 4, 255, 0.9) 100%
+  );
+  color: white;
+  box-shadow: 0 10px 30px rgba(21, 212, 187, 0.3);
+}
+
+.cta-contacto .btn-secondary {
+  background: white;
+  color: #15d4bb;
+  border: 2px solid #15d4bb;
+  box-shadow: 0 10px 30px rgba(21, 212, 187, 0.2);
+}
+
+.cta-contacto .btn:hover {
+  transform: translateY(-3px);
+}
+
+.cta-contacto .btn-primary:hover {
+  box-shadow: 0 15px 40px rgba(21, 212, 187, 0.4);
+}
+
+.cta-contacto .btn-secondary:hover {
+  background: #15d4bb;
+  color: white;
+  box-shadow: 0 15px 40px rgba(21, 212, 187, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cta-admisiones h2,
+  .cta-contacto h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .cta-admisiones p,
+  .cta-contacto p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    padding: 0 20px;
+  }
+
+  .cta-admisiones .btn,
+  .cta-contacto .btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .cta-content {
+    padding: 0 20px;
+  }
+}

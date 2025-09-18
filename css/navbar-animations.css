@@ -1,0 +1,312 @@
+/* Base navbar link styling with rainbow colors */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Rainbow color classes for each nav item - NEON VERSION */
+.animation-option-1 .nav-link:nth-child(1) {
+  color: #ff6b6b;
+} /* Red */
+.animation-option-1 .nav-link:nth-child(2) {
+  color: #ffa726;
+} /* Orange */
+.animation-option-1 .nav-link:nth-child(3) {
+  color: #ffeb3b;
+} /* Yellow */
+.animation-option-1 .nav-link:nth-child(4) {
+  color: #66bb6a;
+} /* Green */
+.animation-option-1 .nav-link:nth-child(5) {
+  color: #42a5f5;
+} /* Blue */
+.animation-option-1 .nav-link:nth-child(6) {
+  color: #ab47bc;
+} /* Purple */
+
+/* OPTION 1: Most Exaggerated - Rainbow Pulse with Scale and Glow */
+.animation-option-1 .nav-link {
+  animation: rainbowPulse 2s infinite;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.animation-option-1 .nav-link:hover {
+  transform: scale(1.3) rotate(5deg);
+  animation: rainbowPulseHover 0.5s infinite;
+  text-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+}
+
+@keyframes rainbowPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    transform: scale(1.1);
+    filter: hue-rotate(90deg) brightness(1.2);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: hue-rotate(180deg) brightness(1.4);
+  }
+  75% {
+    transform: scale(1.1);
+    filter: hue-rotate(270deg) brightness(1.2);
+  }
+}
+
+@keyframes rainbowPulseHover {
+  0%,
+  100% {
+    transform: scale(1.3) rotate(5deg);
+    filter: hue-rotate(0deg) brightness(1.5);
+  }
+  50% {
+    transform: scale(1.4) rotate(-5deg);
+    filter: hue-rotate(180deg) brightness(2);
+  }
+}
+
+/* Rainbow color classes for each nav item - MUTED VERSION */
+.animation-option-2 .nav-link:nth-child(1) {
+  color: #c85a5a;
+} /* Muted Red */
+.animation-option-2 .nav-link:nth-child(2) {
+  color: #d18854;
+} /* Muted Orange */
+.animation-option-2 .nav-link:nth-child(3) {
+  color: #c4b858;
+} /* Muted Yellow */
+.animation-option-2 .nav-link:nth-child(4) {
+  color: #5a9b5e;
+} /* Muted Green */
+.animation-option-2 .nav-link:nth-child(5) {
+  color: #4a7ba7;
+} /* Muted Blue */
+.animation-option-2 .nav-link:nth-child(6) {
+  color: #8e5c97;
+} /* Muted Purple */
+
+/* OPTION 2: Moderate - Gentle Wave with Color Shift (MUTED COLORS) */
+.animation-option-2 .nav-link {
+  animation: gentleWave 3s ease-in-out infinite;
+}
+
+.animation-option-2 .nav-link:hover {
+  transform: translateY(-5px);
+  animation: colorShift 1s ease-in-out infinite;
+  text-shadow: 0 2px 10px currentColor;
+}
+
+@keyframes gentleWave {
+  0%,
+  100% {
+    transform: translateY(0);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: translateY(-2px);
+    filter: hue-rotate(30deg);
+  }
+}
+
+@keyframes colorShift {
+  0%,
+  100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% {
+    filter: hue-rotate(60deg) brightness(1.3);
+  }
+}
+
+/* Rainbow color classes for each nav item - OPTION 3 MUTED VERSION */
+.animation-option-3 .nav-link:nth-child(1) {
+  color: #c85a5a;
+} /* Muted Red */
+.animation-option-3 .nav-link:nth-child(2) {
+  color: #d18854;
+} /* Muted Orange */
+.animation-option-3 .nav-link:nth-child(3) {
+  color: #c4b858;
+} /* Muted Yellow */
+.animation-option-3 .nav-link:nth-child(4) {
+  color: #5a9b5e;
+} /* Muted Green */
+.animation-option-3 .nav-link:nth-child(5) {
+  color: #4a7ba7;
+} /* Muted Blue */
+.animation-option-3 .nav-link:nth-child(6) {
+  color: #8e5c97;
+} /* Muted Purple */
+
+/* OPTION 3: Subtle - Soft Glow on Hover */
+.animation-option-3 .nav-link {
+  transition: all 0.3s ease;
+}
+
+.animation-option-3 .nav-link:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+  filter: brightness(1.2);
+}
+
+/* OPTION 4: Medium - Bounce with Color Fade */
+.animation-option-4 .nav-link {
+  animation: subtleBounce 4s ease-in-out infinite;
+}
+
+.animation-option-4 .nav-link:hover {
+  animation: hoverBounce 0.6s ease-in-out;
+  text-shadow: 0 3px 12px currentColor;
+}
+
+@keyframes subtleBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-1px);
+    opacity: 1;
+  }
+}
+
+@keyframes hoverBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  75% {
+    transform: translateY(-6px);
+  }
+}
+
+/* OPTION 5: Very Subtle - Just Color Enhancement */
+.animation-option-5 .nav-link {
+  transition: all 0.2s ease;
+}
+
+.animation-option-5 .nav-link:hover {
+  filter: brightness(1.1);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ACTIVE LINK ANIMATIONS - Letter by letter color change and rotation */
+.nav-link.active {
+  position: relative;
+  display: inline-block;
+}
+
+/* Split text into individual letters for animation */
+.nav-link.active .letter {
+  display: inline-block;
+  animation: letterColorRotate 3s ease-in-out infinite;
+  transform-origin: center;
+  -webkit-text-stroke-width: 1px;
+  text-stroke-width: 1px;
+}
+
+/* Different animation delays for each letter position - HERO-TITLE COLORS WITH DARK OUTLINE */
+.nav-link.active .letter:nth-child(1) {
+  animation-delay: 0s;
+  color: #ff4757; /* Bright Red like hero */
+  -webkit-text-stroke-color: #cc1e2d; /* Darker red outline */
+  text-stroke-color: #cc1e2d;
+}
+.nav-link.active .letter:nth-child(2) {
+  animation-delay: 0.2s;
+  color: #ff6348; /* Orange-Red like hero */
+  -webkit-text-stroke-color: #cc2a1a; /* Darker orange-red outline */
+  text-stroke-color: #cc2a1a;
+}
+.nav-link.active .letter:nth-child(3) {
+  animation-delay: 0.4s;
+  color: #ffa502; /* Orange like hero */
+  -webkit-text-stroke-color: #cc7700; /* Darker orange outline */
+  text-stroke-color: #cc7700;
+}
+.nav-link.active .letter:nth-child(4) {
+  animation-delay: 0.6s;
+  color: #ffdd59; /* Yellow like hero */
+  -webkit-text-stroke-color: #ccaa00; /* Darker yellow outline */
+  text-stroke-color: #ccaa00;
+}
+.nav-link.active .letter:nth-child(5) {
+  animation-delay: 0.8s;
+  color: #7bed9f; /* Light Green like hero */
+  -webkit-text-stroke-color: #4a9966; /* Darker green outline */
+  text-stroke-color: #4a9966;
+}
+.nav-link.active .letter:nth-child(6) {
+  animation-delay: 1s;
+  color: #70a1ff; /* Blue like hero */
+  -webkit-text-stroke-color: #4470cc; /* Darker blue outline */
+  text-stroke-color: #4470cc;
+}
+.nav-link.active .letter:nth-child(7) {
+  animation-delay: 1.2s;
+  color: #5352ed; /* Indigo like hero */
+  -webkit-text-stroke-color: #2e2d99; /* Darker indigo outline */
+  text-stroke-color: #2e2d99;
+}
+.nav-link.active .letter:nth-child(8) {
+  animation-delay: 1.4s;
+  color: #a55eea; /* Purple like hero */
+  -webkit-text-stroke-color: #6b3399; /* Darker purple outline */
+  text-stroke-color: #6b3399;
+}
+.nav-link.active .letter:nth-child(9) {
+  animation-delay: 1.6s;
+  color: #ff3838; /* Pink-Red like hero */
+  -webkit-text-stroke-color: #cc0d0d; /* Darker pink-red outline */
+  text-stroke-color: #cc0d0d;
+}
+.nav-link.active .letter:nth-child(10) {
+  animation-delay: 1.8s;
+  color: #ff9ff3; /* Pink like hero */
+  -webkit-text-stroke-color: #cc66c2; /* Darker pink outline */
+  text-stroke-color: #cc66c2;
+}
+.nav-link.active .letter:nth-child(11) {
+  animation-delay: 2s;
+  color: #54a0ff; /* Light Blue like hero */
+  -webkit-text-stroke-color: #2670cc; /* Darker light blue outline */
+  text-stroke-color: #2670cc;
+}
+.nav-link.active .letter:nth-child(12) {
+  animation-delay: 2.2s;
+  color: #5f27cd; /* Deep Purple like hero */
+  -webkit-text-stroke-color: #3d1a85; /* Darker deep purple outline */
+  text-stroke-color: #3d1a85;
+}
+
+/* Letter animation keyframes */
+@keyframes letterColorRotate {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    transform: rotate(5deg) scale(1.1);
+    filter: hue-rotate(90deg) brightness(1.2);
+  }
+  50% {
+    transform: rotate(-3deg) scale(1.05);
+    filter: hue-rotate(180deg) brightness(1.3);
+  }
+  75% {
+    transform: rotate(7deg) scale(1.08);
+    filter: hue-rotate(270deg) brightness(1.1);
+  }
+}

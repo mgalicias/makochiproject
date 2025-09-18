@@ -6,9 +6,12 @@
     <title>Admisiones - Makochi Preescolar</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/areas-desarrollo.css" />
+    <link rel="stylesheet" href="css/navbar-animations.css" />
+    <link rel="stylesheet" href="css/faq.css" />
+    <link rel="stylesheet" href="css/cta-sections.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -17,12 +20,12 @@
   <body>
     <!-- Header -->
     <header class="header">
-      <nav class="navbar">
+      <nav class="navbar animation-option-3">
         <div class="nav-container">
           <div class="nav-logo">
             <a href="index.html">
               <img
-                src="images/makochi_logo_white.png"
+                src="images/logo-header.png"
                 alt="Makochi Preescolar"
                 class="logo"
               />
@@ -52,7 +55,6 @@
             <span class="bar"></span>
           </div>
         </div>
-      </nav>
     </header>
 
     <main>
@@ -79,7 +81,7 @@
                 sencillo y transparente que te permitirá conocer todo sobre
                 nuestra propuesta educativa.
               </p>
-              <p>
+              <p>cta-content
                 Nuestro objetivo es que tanto padres como niños se sientan
                 cómodos y seguros de formar parte de nuestra comunidad
                 educativa.
@@ -100,7 +102,7 @@
         <div class="container">
           <h2 class="section-title text-center">Pasos para la Inscripción</h2>
           <div class="pasos-grid">
-            <div class="paso-item">
+            <div class="paso-item cta-content">
               <div class="paso-numero">1</div>
               <h3>Solicitud de Información</h3>
               <p>
@@ -161,32 +163,34 @@
               <div class="requisito-section">
                 <h3>Edad de Ingreso</h3>
                 <ul>
-                  <li><strong>Maternal</strong> Apartir de los 6 meses</li>
+                  <li><strong>Pre-Maternal</strong> Apartir de 6 meses a los 2 años</li>
+                  <li><strong>Maternal</strong> Apartir de 2 a 3 años</li>
                   <li>
-                    <strong>Preescolar 1:</strong> Apartir de los 3 años
-                    cumplidos
+                    <strong>Preescolar 1:</strong> Apartir de 3 a 4 años
                   </li>
                   <li>
-                    <strong>Preescolar 2:</strong> Apartir de 4 años cumplidos
+                    <strong>Preescolar 2:</strong> Apartir de 4 a 5 años
                   </li>
                   <li>
-                    <strong>Preescolar 3:</strong> Apartir de 5 años cumplidos
+                    <strong>Preescolar 3:</strong> Apartir de 5 a 6 años
                   </li>
                 </ul>
               </div>
               <div class="requisito-section">
                 <h3>Documentos del Niño</h3>
                 <ul>
-                  <li>Acta de nacimiento (original y 2 copias)</li>
-                  <li>CURP (original y 2 copias)</li>
+                  <li>Acta de nacimiento (1 copia)</li>
+                  <li>CURP (1 copia)</li>
                   <li>Cartilla de vacunación actualizada</li>
-                  <li>Certificado médico reciente</li>
+                  <li>Certificado médico reciente (Obligatorio)</li>
+
                 </ul>
               </div>
               <div class="requisito-section">
                 <h3>Documentos de los Padres</h3>
                 <ul>
                   <li>Identificación oficial (copia)</li>
+                  <li>Copia de Identificación oficial de las personas autorizadas para recoger al alumno</li>
                   <li>Comprobante de domicilio reciente</li>
                 </ul>
               </div>
@@ -204,75 +208,6 @@
         </div>
       </section>
 
-      <!-- Información de Costos -->
-      <section class="costos">
-        <div class="container">
-          <h2 class="section-title text-center">Información de Costos</h2>
-          <div class="costos-grid">
-            <div class="costo-card">
-              <h3>Inscripción Anual</h3>
-              <div class="precio">$8,000</div>
-              <p>
-                Incluye materiales escolares, seguro escolar y kit de bienvenida
-              </p>
-            </div>
-            <div class="costo-card destacado">
-              <h3>Colegiatura Mensual</h3>
-              <div class="precio">$4,700</div>
-              <p>Horario regular de 8:30 AM a 1:30 PM</p>
-              <div class="beneficios">
-                <!--<small>✓ Inglés incluido</small><br />-->
-                <small>✓ Talleres extracurriculares</small><br />
-                <small>✓ Eventos especiales</small>
-              </div>
-            </div>
-            <div class="costo-card">
-              <h3>Horario Extendido</h3>
-              <div class="precio">$7,500</div>
-              <p>De 7:30 AM a 6:00 PM con alimentación incluida</p>
-            </div>
-          </div>
-          <!--<div class="descuentos">
-            <h3>Descuentos Disponibles</h3>
-            <ul>
-              <!--<li>10% de descuento por hermanos</li>
-              <li>5% de descuento por pago anual anticipado</li>
-              <li>
-                Becas disponibles por situación económica (previa evaluación)
-              </li>
-            </ul>
-          </div>-->
-        </div>
-      </section>
-
-      <!-- Fechas Importantes -->
-      <!--<section class="fechas">
-        <div class="container">
-          <h2 class="section-title text-center">Fechas Importantes</h2>
-          <div class="fechas-grid">
-            <div class="fecha-item">
-              <div class="fecha-mes">ENE - FEB</div>
-              <h3>Período de Inscripciones</h3>
-              <p>Proceso de admisión para el ciclo escolar 2025-2026</p>
-            </div>
-            <div class="fecha-item">
-              <div class="fecha-mes">MAR</div>
-              <h3>Confirmación de Lugares</h3>
-              <p>Notificación de aceptación y reserva de lugar</p>
-            </div>
-            <div class="fecha-item">
-              <div class="fecha-mes">AGO</div>
-              <h3>Inicio de Clases</h3>
-              <p>Comienzo del ciclo escolar con período de adaptación</p>
-            </div>
-            <div class="fecha-item">
-              <div class="fecha-mes">JUL</div>
-              <h3>Curso de Verano</h3>
-              <p>Actividades especiales para niños ya inscritos</p>
-            </div>
-          </div>
-        </div>
-      </section>-->
 
       <!-- Preguntas Frecuentes -->
       <section class="faq">
@@ -288,10 +223,10 @@
               </p>
             </div>
             <div class="faq-item">
-              <h3>¿Ofrecen servicios de alimentación?</h3>
+              <h3>¿Puedo visitar las instalaciones antes de inscribir a mi hijo?</h3>
               <p>
-                Sí, contamos con servicio de lunch y comida nutritiva preparada
-                por nutriólogos para el horario extendido.
+                ¡Por supuesto! Te invitamos a agendar una cita para conocer
+                nuestras instalaciones y resolver todas tus dudas.
               </p>
             </div>
             <div class="faq-item">
@@ -302,12 +237,11 @@
               </p>
             </div>
             <div class="faq-item">
-              <h3>¿Qué medidas de seguridad tienen?</h3>
+              <h3>¿Qué medidas de seguridad tienen implementadas?</h3>
               <p>
-                Sistema de cámaras, control de acceso, personal capacitado y
-                protocolos de seguridad actualizados constantemente.
-              </p>
-            </div>
+                Nuestras instalaciones están diseñadas para ser seguras y
+                contamos con sistemas de vigilancia y control de acceso.
+              </p>  
           </div>
         </div>
       </section>
@@ -332,7 +266,7 @@
         <div class="footer-content">
           <div class="footer-section">
             <a href="index.html"
-              ><img src="images/makochi_logo_cyan.png" alt="MakochiFooter" />
+              ><img src="images/logo-footer.png" alt="MakochiFooter" />
             </a>
             <p>Educación inicial de calidad con amor y dedicación</p>
           </div>
@@ -348,20 +282,20 @@
                 href="https://www.facebook.com/profile.php?id=100089832392100"
                 target="_blank"
                 aria-label="Facebook"
-                ><img src="images/facebook.png" alt="Facebook" />
+                ><img src="images/social-facebook.png" alt="Facebook" />
               </a>
               <a
                 href="https://instagram.com/kinder.makochi"
                 target="_blank"
                 aria-label="Instagram"
               >
-                <img src="images/instagram.png" alt="Instagram" />
+                <img src="images/social-instagram.png" alt="Instagram" />
               </a>
               <a
                 href="https://wa.me/4421415947"
                 aria-label="WhatsApp"
                 target="_blank"
-                ><img src="images/whatsapp.png" alt="WhatsApp"
+                ><img src="images/social-whatsapp.png" alt="WhatsApp"
               /></a>
             </div>
           </div>

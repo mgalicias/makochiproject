@@ -1,0 +1,58 @@
+/* Optimized collage styles for installations gallery */
+
+/* Grid layout optimization */
+.photo-collage-grid {
+  align-items: start;
+  justify-items: center;
+}
+
+/* Collage item base styles */
+.collage-item {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.collage-item.gallery-item {
+  position: relative;
+  display: block;
+}
+
+/* Image container optimization */
+.collage-item .image-container {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* Image styling */
+.image-container img,
+.collage-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  vertical-align: middle;
+  border-radius: inherit;
+}
+
+/* Overlay positioning */
+.collage-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+/* Ensure proper stacking */
+.collage-item > * {
+  position: relative;
+}
+
+.collage-item .collage-overlay {
+  position: absolute;
+}

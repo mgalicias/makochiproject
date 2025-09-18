@@ -1,0 +1,27 @@
+/* 
+ * Areas Desarrollo CSS - Main Index File
+ * This file imports all the fragmented CSS modules
+ * Use this instead of the original areas-desarrollo.css
+ */
+
+/* Core sections */
+@import url("./areas-desarrollo-section.css");
+@import url("./instalaciones-gallery.css");
+@import url("./gallery-modal.css");
+@import url("./caracteristicas.css");
+@import url("./seguridad.css");
+
+/* Admissions related sections */
+@import url("./proceso-admision.css");
+@import url("./requisitos.css");
+@import url("./faq.css");
+
+/* Call to action sections */
+@import url("./cta-sections.css");
+
+/* Contact page sections */
+@import url("./contacto-page.css");
+@import url("./ubicacion-mapa.css");
+
+/* Checkbox styles (if needed) */
+@import url("./checkbox-styles.css");
