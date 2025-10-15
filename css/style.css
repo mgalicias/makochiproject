@@ -204,7 +204,6 @@ p {
 
 /* === HERO SECTION === */
 .hero {
-  background: url("../images/hero-background.png") no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -213,6 +212,9 @@ p {
   padding: 120px 20px 40px;
   position: relative;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero::before {
@@ -269,21 +271,21 @@ p {
 .hero-title {
   position: relative;
   z-index: 3;
-  font-size: clamp(2.4rem, 8vw, 5.8rem);
+  font-size: clamp(3rem, 10vw, 7rem);
   line-height: 1.1;
   letter-spacing: 0.5px;
   word-break: break-word;
   overflow-wrap: anywhere;
+  color: #fbbc05;
 }
 
 .hero-title .hero-word {
-  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-title .hero-letter {
-  text-shadow: 0 6px 18px rgba(114, 111, 111, 0.55),
-    0 2px 6px rgba(0, 0, 0, 0.45);
-  -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
@@ -810,7 +812,7 @@ figcaption {
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(3rem, 10vw, 5rem);
     margin-bottom: 1.5rem;
     line-height: 1.1;
     word-break: break-word;
@@ -856,13 +858,13 @@ figcaption {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero-title {
-    font-size: clamp(3rem, 7vw, 4.8rem);
+    font-size: clamp(3.5rem, 9vw, 6rem);
   }
 }
 
 @media (min-width: 1024px) {
   .hero-title {
-    font-size: clamp(3.6rem, 6vw, 5.8rem);
+    font-size: clamp(4rem, 8vw, 7rem);
   }
 }
 
