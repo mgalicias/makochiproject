@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acerca de Nosotros - MAKOCHI</title>
+
+    <style>
+      /* Critical CSS */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+          sans-serif;
+      }
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 1000;
+      }
+    </style>
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+    <!-- CSS optimizado -->
+    <link rel="preload" href="css/styles.css" as="style" />
+    <link
+      rel="stylesheet"
+      href="css/styles.css"
+      media="print"
+      onload="this.media='all'; this.onload=null;"
+    />
+    <noscript>
+      <link rel="stylesheet" href="css/styles.css" />
+    </noscript>
+  </head>
+  <body>
+    <!-- Contenido de la página acerca de nosotros -->
+    <header>
+      <h1>Acerca de Nosotros</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Nuestra Misión</h2>
+        <p>
+          En MAKOCHI, nuestra misión es ofrecer productos de la más alta
+          calidad, combinando tradición y modernidad.
+        </p>
+      </section>
+      <section>
+        <h2>Nuestra Visión</h2>
+        <p>
+          Ser reconocidos como líderes en la industria, innovando constantemente
+          y superando las expectativas de nuestros clientes.
+        </p>
+      </section>
+      <section>
+        <h2>Valores</h2>
+        <ul>
+          <li>Calidad</li>
+          <li>Innovación</li>
+          <li>Compromiso</li>
+          <li>Respeto al medio ambiente</li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 MAKOCHI. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
