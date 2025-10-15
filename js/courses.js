@@ -5,7 +5,7 @@ function displayCourses(courses) {
     const courseCard = document.createElement("div");
     courseCard.className = "course-card";
     courseCard.innerHTML = `
-            <img src="${course.image}" alt="${course.title}" loading="lazy">
+            <img data-src="${course.image}" alt="${course.title}" class="lazy" style="background: #f0f0f0;">
             <div class="course-card-content">
                 <span class="course-category">${course.category}</span>
                 <h3>${course.title}</h3>
@@ -19,4 +19,9 @@ function displayCourses(courses) {
         `;
     coursesGrid.appendChild(courseCard);
   });
+
+  // Re-inicializar lazy loading para nuevas imágenes
+  if (window.reInitLazyLoad) {
+    window.reInitLazyLoad();
+  }
 }

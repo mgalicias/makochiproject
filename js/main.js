@@ -1368,3 +1368,42 @@ document.addEventListener("DOMContentLoaded", () => {
   App.init();
   initActiveNavAnimation();
 });
+
+// Optimización: usar requestIdleCallback para tareas no críticas
+function deferredInit() {
+  // Inicializar características no críticas
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(() => {
+      initNonCriticalFeatures();
+    });
+  } else {
+    setTimeout(initNonCriticalFeatures, 1);
+  }
+}
+
+function initNonCriticalFeatures() {
+  // Cargar iconos y fuentes secundarias
+  const iconsLink = document.createElement("link");
+  iconsLink.rel = "stylesheet";
+  iconsLink.href =
+    "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css";
+  document.head.appendChild(iconsLink);
+
+  // Cargar fuentes de Google si es necesario
+  const fontsLink = document.createElement("link");
+  fontsLink.rel = "stylesheet";
+  fontsLink.href =
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
+  document.head.appendChild(fontsLink);
+}
+
+// Inicializar cuando el DOM esté listo
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    // ...existing code...
+    deferredInit();
+  });
+} else {
+  // ...existing code...
+  deferredInit();
+}
