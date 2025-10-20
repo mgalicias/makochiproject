@@ -1298,6 +1298,21 @@ function initActiveNavAnimation() {
 
 // The mobile navigation is already handled by the Navigation module above
 
+// ===== HERO HEIGHT FIX MODULE =====
+const HeroHeightFix = {
+  init() {
+    this.setHeroHeight();
+    window.addEventListener("resize", Utils.debounce(this.setHeroHeight, 250));
+  },
+
+  setHeroHeight() {
+    const hero = Utils.getElement(".hero");
+    if (hero) {
+      hero.style.minHeight = `${window.innerHeight}px`;
+    }
+  },
+};
+
 // ===== MAIN INITIALIZATION =====
 const App = {
   init() {
@@ -1306,6 +1321,7 @@ const App = {
     FormValidation.init();
     Gallery.init();
     ScrollAnimations.init();
+    HeroHeightFix.init();
 
     // Initialize animations
     HeroAnimation.init();
@@ -1313,7 +1329,6 @@ const App = {
 
     // Add compatibility checks
     this.addCompatibilityFixes();
-    this.initHorarioFix();
     this.initA11y();
   },
 
@@ -1322,16 +1337,6 @@ const App = {
     if (!window.NodeList || !NodeList.prototype.forEach) {
       NodeList.prototype.forEach = Array.prototype.forEach;
     }
-  },
-
-  initHorarioFix() {
-    // Ensure horario items are visible
-    const horarioItems = document.querySelectorAll(".horario-item");
-    horarioItems.forEach((item) => {
-      item.style.opacity = "1";
-      item.style.visibility = "visible";
-      item.style.display = "block";
-    });
   },
 
   initA11y() {
