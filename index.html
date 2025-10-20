@@ -3,21 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Makochi Preescolar ofrece educación inicial de la más alta calidad, enfocada en el desarrollo integral de los niños a través de un modelo educativo innovador y un ambiente seguro y estimulante."
+    />
     <title>Makochi Preescolar - Educación Inicial de Calidad</title>
 
-    <!-- CSS Crítico Inline -->
-    <style>
-      /* Critical CSS */
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+
+    <!-- <style>
+      /* Above the fold critical CSS - Inline esto en <style> de cada página */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
-          sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         line-height: 1.6;
         color: #333;
+        background: #fff;
       }
       .navbar {
         position: fixed;
@@ -26,6 +31,7 @@
         background: #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         z-index: 1000;
+        padding: 1rem 5%;
       }
       .hero {
         min-height: 100vh;
@@ -36,24 +42,35 @@
       img {
         max-width: 100%;
         height: auto;
+        display: block;
       }
-    </style>
+      img.lazy {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      img.loaded {
+        opacity: 1;
+      }
+      /* Loading placeholder */
+      img[data-src] {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+    </style> -->
 
-    <!-- Preload recursos críticos -->
-    <link rel="preload" href="css/styles.css" as="style" />
-    <link rel="preload" href="js/main.js" as="script" />
-
-    <!-- CSS no crítico con media trick -->
-    <link
-      rel="stylesheet"
-      href="css/styles.css"
-      media="print"
-      onload="this.media='all'; this.onload=null;"
-    />
-    <noscript>
-      <link rel="stylesheet" href="css/styles.css" />
-    </noscript>
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <!-- Carga de CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar-animations.css" />
+    <link rel="stylesheet" href="css/cta-sections.css" />
   </head>
   <body>
     <header class="header">
@@ -96,9 +113,12 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section
+        class="hero"
+        style="background-image: url('images/hero-background_2.png')"
+      >
         <div class="hero-content">
-          <h1 class="hero-title">Bienvenidos <b>Makochi Preescolar</b></h1>
+          <h1 class="hero-title">Bienvenidos a Makochi Preescolar</h1>
           <p class="hero-subtitle">
             Donde cada niño descubre su potencial y construye las bases para un
             futuro brillante
@@ -106,13 +126,6 @@
           <a id="btn-conoce-mas" href="nosotros.html" class="btn btn-primary"
             >Conoce Más</a
           >
-        </div>
-        <div class="hero-image">
-          <img
-            src="images/hero-image.png"
-            alt="Educación Empresarial"
-            loading="lazy"
-          />
         </div>
       </section>
 
