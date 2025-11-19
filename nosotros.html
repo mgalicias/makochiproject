@@ -8,6 +8,9 @@
 
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
 
+    <!-- Preload imagen hero -->
+    <link rel="preload" as="image" href="images/hero-background_2.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -70,10 +73,10 @@
       }
     </style>
 
-    <!-- Carga de CSS -->
+    <!-- CSS con carga optimizada -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/navbar-animations.css" />
-    <link rel="stylesheet" href="css/areas-desarrollo-modules.css" />
+    <link rel="stylesheet" href="css/navbar-animations.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/areas-desarrollo-modules.css" media="print" onload="this.media='all'" />
   </head>
   <body>
     <!-- Header -->
@@ -149,8 +152,11 @@
             </div>
             <div class="image-content">
               <img
-                src="images/fachada.jpg"
+                data-src="images/fachada.jpg"
                 alt="Historia de Makochi Preescolar"
+                class="lazy"
+                width="600"
+                height="400"
               />
             </div>
           </div>

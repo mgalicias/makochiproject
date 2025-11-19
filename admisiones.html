@@ -8,6 +8,10 @@
 
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
 
+    <!-- Preload hero -->
+    <link rel="preload" as="image" href="images/hero-background_5.png" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -72,10 +76,10 @@
 
     <!-- Carga de CSS -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/navbar-animations.css" />
-    <link rel="stylesheet" href="css/areas-desarrollo-modules.css" />
-    <link rel="stylesheet" href="css/faq.css" />
-    <link rel="stylesheet" href="css/cta-sections.css" />
+    <link rel="stylesheet" href="css/navbar-animations.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/areas-desarrollo-modules.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/faq.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/cta-sections.css" media="print" onload="this.media='all'" />
   </head>
   <body>
     <!-- Header -->
@@ -149,8 +153,11 @@
             </div>
             <div class="image-content">
               <img
-                src="images/WhatsApp Image 2025-07-24 at 1.44.36 AM.jpeg"
+                data-src="images/WhatsApp Image 2025-07-24 at 1.44.36 AM.jpeg"
                 alt="Proceso de admisiones Makochi"
+                class="lazy"
+                width="600"
+                height="400"
               />
             </div>
           </div>

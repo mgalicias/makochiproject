@@ -11,18 +11,96 @@
 
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
 
+    <!-- Preconnect para fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<<<<<<< HEAD
+
+
+=======
+    <!-- Preload imagen hero crítica -->
+    <link rel="preload" as="image" href="images/hero-background_1.png" />
+
+    <!-- Preload CSS crítico -->
+    <link rel="preload" href="css/style.css" as="style" />
+
+    <!-- CSS Crítico Inline -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Quicksand", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #fff;
+      }
+      .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+      }
+      .hero.bg-loaded {
+        opacity: 1;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      img.lazy {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      img.lazy.loaded {
+        opacity: 1;
+      }
+      .logo {
+        width: 180px;
+        height: auto;
+      }
+    </style>
+
+    <!-- CSS no crítico con media print para cargar async -->
+>>>>>>> loading-issue
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="css/navbar-animations.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/cta-sections.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Fuentes con display=swap -->
     <link
       href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
-
-
-
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/navbar-animations.css" />
-    <link rel="stylesheet" href="css/cta-sections.css" />
   </head>
   <body>
     <header class="header">
@@ -34,6 +112,8 @@
                 src="images/logo-header.png"
                 alt="Makochi Preescolar Logo"
                 class="logo"
+                width="180"
+                height="60"
               />
             </a>
           </div>

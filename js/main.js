@@ -1313,9 +1313,92 @@ const HeroHeightFix = {
   },
 };
 
+// ===== LAZY LOADING MODULE =====
+const LazyLoading = {
+  init() {
+    this.loadCriticalImages();
+    this.setupIntersectionObserver();
+    this.preloadHeroBackground();
+  },
+
+  loadCriticalImages() {
+    // Cargar logo inmediatamente
+    const logo = document.querySelector(".logo");
+    if (logo && logo.dataset.src) {
+      logo.src = logo.dataset.src;
+      logo.classList.add("loaded");
+    }
+  },
+
+  preloadHeroBackground() {
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
+
+    const bgImage = window.getComputedStyle(hero).backgroundImage;
+    const imageUrl = bgImage.match(/url\(['"]?([^'"]+)['"]?\)/)?.[1];
+
+    if (imageUrl) {
+      const img = new Image();
+      img.onload = () => {
+        hero.style.backgroundImage = `url('${imageUrl}')`;
+        hero.classList.add("bg-loaded");
+      };
+      img.src = imageUrl;
+    }
+  },
+
+  setupIntersectionObserver() {
+    if (!("IntersectionObserver" in window)) {
+      this.loadAllImages();
+      return;
+    }
+
+    const imageObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.loadImage(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        rootMargin: "50px 0px",
+        threshold: 0.01,
+      }
+    );
+
+    document.querySelectorAll("img[data-src]").forEach((img) => {
+      imageObserver.observe(img);
+    });
+  },
+
+  loadImage(img) {
+    const src = img.dataset.src || img.dataset.fullSrc;
+    if (!src) return;
+
+    img.src = src;
+    img.classList.add("lazy");
+
+    img.onload = () => {
+      img.classList.add("loaded");
+      img.removeAttribute("data-src");
+    };
+  },
+
+  loadAllImages() {
+    document.querySelectorAll("img[data-src]").forEach((img) => {
+      this.loadImage(img);
+    });
+  },
+};
+
 // ===== MAIN INITIALIZATION =====
 const App = {
   init() {
+    // Initialize lazy loading first
+    LazyLoading.init();
+
     // Initialize core modules
     Navigation.init();
     FormValidation.init();
