@@ -3,10 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Conoce el modelo educativo de Makochi Preescolar, una metodología innovadora que combina juego, aprendizaje y desarrollo integral." />
+    <meta
+      name="description"
+      content="Conoce el modelo educativo de Makochi Preescolar, una metodología innovadora que combina juego, aprendizaje y desarrollo integral."
+    />
     <title>Modelo Educativo - Makochi Preescolar</title>
 
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+
+    <!-- Preload hero -->
+    <link rel="preload" as="image" href="images/hero-background_3.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,7 +62,12 @@
       }
       /* Loading placeholder */
       img[data-src] {
-        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background: linear-gradient(
+          90deg,
+          #f0f0f0 25%,
+          #e0e0e0 50%,
+          #f0f0f0 75%
+        );
         background-size: 200% 100%;
         animation: loading 1.5s infinite;
       }
@@ -72,12 +83,42 @@
 
     <!-- Carga de CSS -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/navbar-animations.css" />
-    <link rel="stylesheet" href="css/areas-desarrollo-modules.css" />
-    <link rel="stylesheet" href="css/abstract-collage.css" />
-    <link rel="stylesheet" href="css/gallery-modal.css" />
-    <link rel="stylesheet" href="css/pilares.css" />
-    <link rel="stylesheet" href="css/talleres.css" />
+    <link
+      rel="stylesheet"
+      href="css/navbar-animations.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/areas-desarrollo-modules.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/abstract-collage.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/gallery-modal.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/pilares.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/talleres.css"
+      media="print"
+      onload="this.media='all'"
+    />
   </head>
   <body>
     <!-- Header -->
@@ -120,7 +161,10 @@
 
     <main>
       <!-- Hero Section -->
-      <section class="hero" style="background-image: url('images/hero-background_3.png');">
+      <section
+        class="hero"
+        style="background-image: url('images/hero-background_3.png')"
+      >
         <div class="hero-content">
           <h1 class="hero-title">Nuestro Modelo Educativo</h1>
           <p class="hero-subtitle">
@@ -152,8 +196,11 @@
             </div>
             <div class="image-content">
               <img
-                src="images/modelo-educativo-estimulacion.jpg"
+                data-src="images/modelo-educativo-estimulacion.jpg"
                 alt="Metodología educativa Makochi"
+                class="lazy"
+                width="600"
+                height="400"
               />
             </div>
           </div>
@@ -177,8 +224,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-desarrollo-cognitivo.jpeg"
+                  data-src="images/modelo-educativo-desarrollo-cognitivo.jpeg"
                   alt="Niños cocinan como mini chefs, colaborando y explorando sabores"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -194,8 +244,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-desarrollo-socioemocional.jpeg"
+                  data-src="images/modelo-educativo-desarrollo-socioemocional.jpeg"
                   alt="Niño sonríe en el juego de patio, explorando posibilidades y reglas"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -211,8 +264,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-lenguaje-comunicacion.jpeg"
+                  data-src="images/modelo-educativo-lenguaje-comunicacion.jpeg"
                   alt="Niños disfrazados juegan roles, crean historias y acuerdos"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -226,8 +282,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-pensamiento-matematico.jpeg"
+                  data-src="images/modelo-educativo-pensamiento-matematico.jpeg"
                   alt="Niña pinta con el pie, explorando texturas y colores"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -241,8 +300,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-exploracion-entorno.jpeg"
+                  data-src="images/modelo-educativo-exploracion-entorno.jpeg"
                   alt="Niñas realizan manualidades, dialogan y toman decisiones"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -256,8 +318,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-arte-creatividad.jpeg"
+                  data-src="images/modelo-educativo-arte-creatividad.jpeg"
                   alt="Niño explora hojas y texturas en un espacio verde"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -272,8 +337,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-desarrollo-fisico.jpeg"
+                  data-src="images/modelo-educativo-desarrollo-fisico.jpeg"
                   alt="Niños crean arte con las manos, expresando ideas y emociones"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -287,8 +355,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-ingles-ludico.jpeg"
+                  data-src="images/modelo-educativo-ingles-ludico.jpeg"
                   alt="Niños disfrutan actividades, participan y comparten"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -302,8 +373,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-valores.jpeg"
+                  data-src="images/modelo-educativo-valores.jpeg"
                   alt="Niño usa lupa para observar y formular preguntas"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -318,8 +392,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-lectoescritura.jpeg"
+                  data-src="images/modelo-educativo-lectoescritura.jpeg"
                   alt="Niños exploran materiales y procesos creativos"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -333,8 +410,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-musica-movimiento.jpeg"
+                  data-src="images/modelo-educativo-musica-movimiento.jpeg"
                   alt="Niña sonríe en el aula, se siente segura y acompañada"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -348,8 +428,11 @@
             >
               <div class="image-container">
                 <img
-                  src="images/modelo-educativo-habilidades-digitales.jpeg"
+                  data-src="images/modelo-educativo-habilidades-digitales.jpeg"
                   alt="Niña experimenta con materiales sensoriales"
+                  class="lazy"
+                  width="400"
+                  height="300"
                 />
               </div>
               <div class="collage-overlay">
@@ -362,7 +445,7 @@
       </section>
 
       <!-- Image Modal -->
-      <div id="gallery-modal" class="gallery-modal" style="display: none;">
+      <div id="gallery-modal" class="gallery-modal" style="display: none">
         <span class="close">&times;</span>
         <img class="modal-content" id="modal-image" alt="" />
         <div id="modal-caption" class="modal-caption"></div>
@@ -463,7 +546,6 @@
             Talleres y Actividades Extracurriculares
           </h2>
           <div class="talleres-grid">
-
             <div class="taller-card">
               <div class="taller-icon">🎭</div>
               <h3>Arte y Expresión</h3>

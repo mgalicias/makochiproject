@@ -11,6 +11,9 @@
 
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
 
+    <!-- Preload hero -->
+    <link rel="preload" as="image" href="images/hero-background_4.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -79,12 +82,42 @@
     </style>
 
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/navbar-animations.css" />
-    <link rel="stylesheet" href="css/abstract-collage.css" />
-    <link rel="stylesheet" href="css/instalaciones-gallery.css" />
-    <link rel="stylesheet" href="css/caracteristicas.css" />
-    <link rel="stylesheet" href="css/seguridad.css" />
-    <link rel="stylesheet" href="css/areas-desarrollo-modules.css" />
+    <link
+      rel="stylesheet"
+      href="css/navbar-animations.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/abstract-collage.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/instalaciones-gallery.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/caracteristicas.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/seguridad.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/areas-desarrollo-modules.css"
+      media="print"
+      onload="this.media='all'"
+    />
   </head>
   <body>
     <header class="header">
@@ -159,8 +192,11 @@
             </div>
             <div class="image-content">
               <img
-                src="images/makochi-doc-1.jpeg"
+                data-src="images/makochi-doc-1.jpeg"
                 alt="Vista general de Makochi Preescolar"
+                class="lazy"
+                width="600"
+                height="400"
               />
             </div>
           </div>
@@ -183,9 +219,12 @@
               data-title="Espacios Exteriores"
             >
               <img
-                src="images/instalaciones-jardin.jpeg"
+                data-src="images/instalaciones-jardin.jpeg"
                 alt="Jardín y área al aire libre de Makochi Preescolar"
                 data-full-src="images/instalaciones-jardin.jpeg"
+                class="lazy"
+                width="400"
+                height="300"
               />
               <div class="collage-overlay">
                 <h3>Espacios Exteriores</h3>
@@ -201,9 +240,12 @@
               data-title="Aulas Didácticas"
             >
               <img
-                src="images/instalaciones-rincon-lectura.jpeg"
+                data-src="images/instalaciones-rincon-lectura.jpeg"
                 alt="Aula de clases con mesas y sillas infantiles"
                 data-full-src="images/instalaciones-rincon-lectura.jpeg"
+                class="lazy"
+                width="400"
+                height="300"
               />
               <div class="collage-overlay">
                 <h3>Aulas Didácticas</h3>
@@ -218,9 +260,12 @@
               data-title="Área de Juego Cubierta"
             >
               <img
-                src="images/instalaciones-salon-preescolar.jpeg"
+                data-src="images/instalaciones-salon-preescolar.jpeg"
                 alt="Zona de juegos techada con casita y carro infantil"
                 data-full-src="images/instalaciones-salon-preescolar.jpeg"
+                class="lazy"
+                width="400"
+                height="300"
               />
               <div class="collage-overlay">
                 <h3>Área de Juego Cubierta</h3>
@@ -235,9 +280,12 @@
               data-title="Biblioteca Infantil"
             >
               <img
-                src="images/instalaciones-patio-central.jpeg"
+                data-src="images/instalaciones-patio-central.jpeg"
                 alt="Rincón de lectura y pizarra interactiva"
                 data-full-src="images/instalaciones-patio-central.jpeg"
+                class="lazy"
+                width="400"
+                height="300"
               />
               <div class="collage-overlay">
                 <h3>Biblioteca Infantil</h3>
@@ -252,9 +300,12 @@
               data-title="Ambientes de Aprendizaje"
             >
               <img
-                src="images/instalaciones-comedor.jpg"
+                data-src="images/instalaciones-comedor.jpg"
                 alt="Vista general de un aula con estanterías y mesas"
                 data-full-src="images/instalaciones-comedor.jpg"
+                class="lazy"
+                width="400"
+                height="300"
               />
               <div class="collage-overlay">
                 <h3>Ambientes de Aprendizaje</h3>
@@ -265,7 +316,13 @@
             </div>
 
             <div class="gallery-item collage-item" data-title="Patio Central">
-              <img src="images/instalaciones-patio.jpeg" alt="Patio central" />
+              <img
+                data-src="images/instalaciones-patio.jpeg"
+                alt="Patio central"
+                class="lazy"
+                width="400"
+                height="300"
+              />
               <div class="collage-overlay">
                 <h3>Patio Central</h3>
                 <p style="color: white">
